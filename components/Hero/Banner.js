@@ -26,9 +26,9 @@ const Banner = ({pass}) => {
         </div>
 
         <div className="flex justify-center px-6 py-20 space-x-10">
-          <button onClick={clickHandler} className="px-5 py-2 bg-green-700 rounded-md hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300 ..."><p className="text-white sm:text-[.9rem]">Get Aid</p></button>
-          <button className="px-5 py-2 bg-green-700 rounded-md hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300 ..."><p className="text-white sm:text-[.9rem]">Donate</p></button>
-          <button className="px-5 py-2 bg-green-700 rounded-md hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300 ..."><p className="text-white sm:text-[.9rem]">Get Involved</p></button>
+          <button onClick={clickHandler} className="px-5 py-2 bg-green-700 rounded-md hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300 ..."><p className="text-white sm:text-[.9rem]">About</p></button>
+          <button className="px-5 py-2 bg-green-700 rounded-md hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300 ..."><p className="text-white sm:text-[.9rem]">News</p></button>
+          <button className="px-5 py-2 bg-green-700 rounded-md hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300 ..."><p className="text-white sm:text-[.9rem]">Notices</p></button>
         </div>
 
     </div>
