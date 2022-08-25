@@ -8,28 +8,28 @@ const Contact = () => {
 
       <Grid container spacing={4} className="md:px-[10rem]">
         <Grid item md={3}>
-          <Image className="rounded-md" src="/floodLanding.jpg" width={450} height={450} />
+          <Image className="rounded-md" src="/img/bup.png" width={450} height={450} />
         </Grid>
         <Grid item md={3}>
-          <Image className="rounded-md" src="/floodLanding.jpg" width={450} height={450} />
+          <Image className="rounded-md" src="/img/bup.png" width={450} height={450} />
         </Grid>
         <Grid item md={3}>
-          <Image className="rounded-md" src="/floodLanding.jpg" width={450} height={450} />
+          <Image className="rounded-md" src="/img/bup.png" width={450} height={450} />
         </Grid>
         <Grid item md={3}>
-          <Image className="rounded-md" src="/floodLanding.jpg" width={450} height={450} />
+          <Image className="rounded-md" src="/img/bup.png" width={450} height={450} />
         </Grid>
         <Grid item md={3}>
-          <Image className="rounded-md" src="/floodLanding.jpg" width={450} height={450} />
+          <Image className="rounded-md" src="/img/bup.png" width={450} height={450} />
         </Grid>
         <Grid item md={3}>
-          <Image className="rounded-md" src="/floodLanding.jpg" width={450} height={450} />
+          <Image className="rounded-md" src="/img/bup.png" width={450} height={450} />
         </Grid>
         <Grid item md={3}>
-          <Image className="rounded-md" src="/floodLanding.jpg" width={450} height={450} />
+          <Image className="rounded-md" src="/img/bup.png" width={450} height={450} />
         </Grid>
         <Grid item md={3}>
-          <Image className="rounded-md" src="/floodLanding.jpg" width={450} height={450} />
+          <Image className="rounded-md" src="/img/bup.png" width={450} height={450} />
         </Grid>
       </Grid>
 
