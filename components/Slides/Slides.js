@@ -16,37 +16,45 @@ const Slides = () =>{
     }
 
     return (
-      <div className="flex justify-center py-10 bg-white">
-    
-				<Slider className="w-[50%]" {...settings}>
-					
-					<div className="text-center px-10">
-						<Image className="rounded-md" src="/img/shop.png" height={650} width={650}/>
-            <p>Earthquake</p>
-					</div>
-					<div className="text-center px-10">
-						<Image className="rounded-md" src="/img/shop.png" height={650} width={650}/>
-            <p>Flood</p>
-					</div>
-					<div className="text-center px-10">
-						<Image className="rounded-md" src="/img/shop.png" height={650} width={650}/>
-            <p>Storm</p>
-					</div>
-          <div className="text-center px-10">
-						<Image className="rounded-md" src="/img/shop.png" height={650} width={650}/>
-            <p>Storm</p>
-					</div>
-          <div className="text-center px-10">
-						<Image className="rounded-md" src="/img/shop.png" height={650} width={650}/>
-            <p>Storm</p>
-					</div>
-          <div className="text-center px-10">
-						<Image className="rounded-md" src="/img/shop.png" height={650} width={650}/>
-            <p>Storm</p>
-					</div>
-				
-				</Slider>	
+      <div className="bg-white">
+
+        <div className="px-[10rem]">
+          <h1>Slides here</h1>
+        </div>
+
+        <div className="flex justify-center py-10">
+      
+          <Slider className="w-[50%]" {...settings}>
+          
+            <div className="text-center px-10">
+              <Image className="rounded-md" src="/img/shop.png" height={650} width={650}/>
+              <p>Earthquake</p>
+            </div>
+            <div className="text-center px-10">
+              <Image className="rounded-md" src="/img/shop.png" height={650} width={650}/>
+              <p>Flood</p>
+            </div>
+            <div className="text-center px-10">
+              <Image className="rounded-md" src="/img/shop.png" height={650} width={650}/>
+              <p>Storm</p>
+            </div>
+            <div className="text-center px-10">
+              <Image className="rounded-md" src="/img/shop.png" height={650} width={650}/>
+              <p>Storm</p>
+            </div>
+            <div className="text-center px-10">
+              <Image className="rounded-md" src="/img/shop.png" height={650} width={650}/>
+              <p>Storm</p>
+            </div>
+            <div className="text-center px-10">
+              <Image className="rounded-md" src="/img/shop.png" height={650} width={650}/>
+              <p>Storm</p>
+            </div>
+        
+          </Slider>	
+        </div>
       </div>
+      
     );
   }
 
