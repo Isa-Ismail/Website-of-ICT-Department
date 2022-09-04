@@ -35,7 +35,7 @@ const Navbar = () => {
 
     return (
             <div>
-            <AppBar className={navBgOnScroll?'!bg-teal-700 transition-all ease-in-out duration-500':'!bg-transparent transition-all ease-in-out duration-500'}>
+            <AppBar className={navBgOnScroll?'!bg-teal-700 !transition-all !ease-in-out !duration-500':'!bg-transparent !transition-all !ease-in-out !duration-500'}>
                 <div className="flex md:px-[10rem] sm:px-4 py-5 items-center">
 
                     <div className="hover:cursor-pointer">
@@ -97,7 +97,6 @@ const Navbar = () => {
                                 <MenuItem onClick={handleClose}>Notices</MenuItem>
                                 <MenuItem onClick={handleClose}>About</MenuItem>
                                 <Link href="/login"><MenuItem onClick={handleClose}>Login</MenuItem></Link>
-                                <Link href="/register"><MenuItem onClick={handleClose}>Register</MenuItem></Link>
                             </Menu>
                         </div>
                     </div>
