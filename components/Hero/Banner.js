@@ -55,7 +55,7 @@ const Banner = ({pass}) => {
           />
           </h1>
           <h2>
-            Find the latest news, in-depth stories, <br /> Q&A and FAQs about our department here.
+            Find the latest news, in-depth stories, <br /> Q&A and FAQs about our department here
           </h2>
         </div>
 
