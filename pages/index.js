@@ -5,11 +5,10 @@ import Slide from '../components/Slides/Slides'
 import { sampleReq } from '../utils/fetcher'
 
 const Home = ({data}) => {
-    console.log({data})
     
     return(
         <>
-            <Layout description="Disaster Resistance Platform" title="DivoAid">             
+            <Layout description="Website of ICT" title="ICT">             
                 <Banner pass = {data}/>   
                 <Logos />
                 <Slide />
