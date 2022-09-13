@@ -1,8 +1,9 @@
 import Layout from '../components/Layout'
 import Banner from '../components/Hero/Banner'
-import Logos from '../components/logos/Logos'
-import Slide from '../components/Slides/Slides'
+import Achievements from '../components/Achievements/Achievements'
+import Programs from '../components/Programs/Programs'
 import { sampleReq } from '../utils/fetcher'
+import Research from '../components/Research/Research'
 
 const Home = ({data}) => {
     
@@ -10,8 +11,9 @@ const Home = ({data}) => {
         <>
             <Layout description="Website of ICT" title="ICT">             
                 <Banner pass = {data}/>   
-                <Logos />
-                <Slide />
+                <Achievements />
+                <Programs />
+                <Research />
             </Layout>
         </>
     )

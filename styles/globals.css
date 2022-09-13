@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital@1&family=Open+Sans:wght@500&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -8,7 +8,8 @@ body{
     width: 100%;
     margin: 0;
     padding: 0;
-    font-family: sans-serif;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     background: url("/img/ict.png");
     background-attachment: fixed;
     background-repeat: no-repeat;
@@ -17,23 +18,35 @@ body{
 h1{
     font-size: 4rem;
     font-weight: 700;
-    color:moccasin;
+    color:beige
 }
 h2{
     font-size: 2rem;
-    color: moccasin;
+    color: beige;
     font-weight: 700;
 }
 h3{
     font-size: 1rem;
     font-weight: 700;
-    color: moccasin
+    color: beige
 }
 p{
     font-size: 1.2rem;
-    color: moccasin;
+    color: beige;
 }
 
 * {
     box-sizing: border-box;
-  }
+}
+
+.programs {
+    background-color: azure;
+    background-image: url("/img/bg.png");
+    background-attachment: fixed;
+}
+
+.research {
+    background-image: url("/img/girls.png");
+    background-attachment: fixed;
+    min-height: 100vh;
+}

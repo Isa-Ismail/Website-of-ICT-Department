@@ -16,7 +16,7 @@ const Banner = ({pass}) => {
   }
 
   return (
-    <div className="md:flex justify-evenly items-center w-[100%] pt-[12rem] min-h-screen">
+    <div className="md:flex px-10 justify-evenly items-center w-[100%] pt-[12rem] min-h-screen">
 
         <div className="space-y-10">
           <h1 className="text-white">
@@ -63,8 +63,8 @@ const Banner = ({pass}) => {
           <div>
               <img className="h-[20rem] w-[30rem] rounded-md" src="/img/self.jpg" alt="bup" />
           </div>
-          <div className="flex space-x-10">
-              <img className="h-[15rem] w-[15rem] rounded-md" src="/img/volley.jpg" alt="bup" />
+          <div className="sm:hidden md:flex space-x-10">
+              <img className="h-[15rem] w-[15rem] rounded-md" src="/img/dean.png" alt="bup" />
               <img className="h-[15rem] w-[15rem] rounded-md" src="/img/champ.jpg" alt="bup" />
           </div>
         </div>
