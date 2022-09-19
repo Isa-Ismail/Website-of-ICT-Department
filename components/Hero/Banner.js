@@ -3,16 +3,12 @@ import { Store } from "../../utils/store"
 import Typewriter from 'typewriter-effect'
 
 
-const Banner = ({pass}) => {
-  //const api = fetch('http://localhost:8000/api/blogs').then(res=>res.json()).then(data=> console.log(data))
-  console.log(pass)
-  const {state, dispatch} = useContext(Store)
+const Banner = () => {
 
-  const clickHandler = async () => {
-    //fetch('https://reqres.in/api/users?page=2').then(res => res.json()).then((data)=> {console.log(data);setFood(data.data[0])})
-    dispatch({type:'SAMPLE', payload: pass})
-    console.log(state)
-  }
+  //const api = fetch('https://ict-6.vercel.app/api/auth').then(res=>res.json()).then(data=> console.log(data))
+
+  const {state, dispatch} = useContext(Store)
+  console.log(state)
 
   return (
     <div className="md:flex px-10 justify-evenly items-center w-[100%] pt-[8rem] min-h-screen">

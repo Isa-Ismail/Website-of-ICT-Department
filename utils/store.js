@@ -4,24 +4,25 @@ import { createContext, useReducer } from "react"
 export const Store = createContext()
 
 const initialState = {
-    latlong: '',
-    stores: [],
-    sample: []
+    userToken: '',
+    message: '',
+    users: [],
+    userInfo: {},
 }
 
 const reducer = (state, action) => {
     switch(action.type){
-        case 'UPDATE':
+        case 'LOAD':
             return {
-                ...state, stores: action.payload
+                ...state, users: action.payload
             }
-        case 'LATLONG':
+        case 'LOGIN':
             return {
-                ...state, latlong: action.payload
+                ...state, userToken: action.payload
             }
-        case 'SAMPLE':
+        case 'REGISTER':
             return {
-                ...state, sample: action.payload
+                ...state, message: action.payload
             }
         default:
             return state
