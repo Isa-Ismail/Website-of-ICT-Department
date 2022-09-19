@@ -1,6 +1,5 @@
 import { useContext } from "react"
 import { Store } from "../../utils/store"
-import CardComponent from "./Card"
 import Typewriter from 'typewriter-effect'
 
 
@@ -16,7 +15,7 @@ const Banner = ({pass}) => {
   }
 
   return (
-    <div className="md:flex px-10 justify-evenly items-center w-[100%] pt-[12rem] min-h-screen">
+    <div className="md:flex px-10 justify-evenly items-center w-[100%] pt-[8rem] min-h-screen">
 
         <div className="space-y-10">
           <h1 className="text-white">
@@ -59,11 +58,11 @@ const Banner = ({pass}) => {
           </h2>
         </div>
 
-        <div className="flex-col justify-center px-6 py-20 space-y-10 md:block">
+        <div className="flex-col justify-center px-6 py-20 space-y-2 md:block">
           <div>
-              <img className="h-[20rem] w-[30rem] rounded-md" src="/img/self.jpg" alt="bup" />
+              <img className="h-[18rem] w-[30rem] rounded-md" src="/img/self.jpg" alt="bup" />
           </div>
-          <div className="sm:hidden md:flex space-x-10">
+          <div className="sm:hidden md:flex space-x-2">
               <img className="h-[15rem] w-[15rem] rounded-md" src="/img/dean.png" alt="bup" />
               <img className="h-[15rem] w-[15rem] rounded-md" src="/img/champ.jpg" alt="bup" />
           </div>

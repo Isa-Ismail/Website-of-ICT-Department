@@ -49,4 +49,5 @@ p{
     background-image: url("/img/girls.png");
     background-attachment: fixed;
     min-height: 100vh;
+    padding-top: 5rem;
 }

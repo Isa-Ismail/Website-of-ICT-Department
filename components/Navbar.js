@@ -80,7 +80,7 @@ const Navbar = () => {
                                 aria-expanded={open ? 'true' : undefined}
                                 onClick={handleClick}
                             >
-                                <MenuIcon className="text-green-700" />
+                                <MenuIcon className="text-white" />
                             </Button>
                             <Menu
                                 id="basic-menu"
