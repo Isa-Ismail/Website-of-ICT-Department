@@ -41,6 +41,14 @@ const login = () => {
     e.preventDefault()
     const response = await signup(username, email, password, phone, country, city)
     dispatch({ type: 'REGISTER', payload: response.message})
+    setForm( {
+      username:'',
+      email: '',
+      password: '',
+      city: '',
+      country: '',
+      phone: ''
+    } )
     console.log(response.message)
   }
 
@@ -76,16 +84,18 @@ const login = () => {
                     />
                   </div>
                   <div>
-                    <TextField
-                    label="Password" variant="outlined"
-                    className="w-[25rem]"
-                    type="password"
-                    name='password'
-                    multiline
-                    maxRows={4}
+                  <TextField
+                    margin="normal"
+                    required
+                    fullWidth
+                    name="password"
+                    label="Password"
                     value={form.password}
                     onChange={handleChange}
-                    />
+                    type="password"
+                    id="password"
+                    autoComplete="current-password"
+                  />
                   </div>
                   <div>
                     <TextField

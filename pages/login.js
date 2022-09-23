@@ -21,7 +21,7 @@ const login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     const response = await signin(email, password)
-    dispatch({ type: 'REGISTER', payload: response.message})
+    dispatch({ type: 'LOGIN', payload: response.message})
     console.log(response.message)
   }
 
@@ -46,14 +46,16 @@ const login = () => {
                   </div>
                   <div>
                     <TextField
-                    label="Password" variant="outlined"
-                    className="w-[25rem]"
-                    type="password"
-                    name='password'
-                    multiline
-                    maxRows={4}
-                    value={form.password}
-                    onChange={handleChange}
+                      margin="normal"
+                      required
+                      fullWidth
+                      name="password"
+                      label="Password"
+                      value={form.password}
+                      onChange={handleChange}
+                      type="password"
+                      id="password"
+                      autoComplete="current-password"
                     />
                   </div>
                   <div className="flex justify-center py-4">
