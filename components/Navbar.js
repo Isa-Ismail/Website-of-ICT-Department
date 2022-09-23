@@ -10,6 +10,12 @@ import Link from 'next/link'
 import LoginRoundedIcon from '@mui/icons-material/LoginRounded'
 
 const Navbar = () => {
+
+    useEffect(()=> {
+        window.addEventListener("scroll", handlenavBgOnScroll);
+        return () => window.removeEventListener("scroll", handlenavBgOnScroll)
+    },)
+    
     const [navBgOnScroll, setNavBgOnScroll] = useState(false)
     const [anchorEl, setAnchorEl] = React.useState(null)
     const open = Boolean(anchorEl)
@@ -20,11 +26,6 @@ const Navbar = () => {
           setNavBgOnScroll(false);
         }
       }
-
-    useEffect(()=> {
-        window.addEventListener("scroll", handlenavBgOnScroll);
-        return () => window.removeEventListener("scroll", handlenavBgOnScroll)
-    },)
 
     const handleClick = (event) => {
       setAnchorEl(event.currentTarget)
