@@ -16,22 +16,22 @@ body{
     background-size: cover;
 }
 h1{
-    font-size: 4rem;
+    font-size: 3rem;
     font-weight: 700;
     color:beige
 }
 h2{
-    font-size: 2rem;
+    font-size: 1.5rem;
     color: beige;
     font-weight: 700;
 }
 h3{
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-weight: 700;
     color: beige
 }
 p{
-    font-size: 1.2rem;
+    font-size: .8rem;
     color: beige;
 }
 

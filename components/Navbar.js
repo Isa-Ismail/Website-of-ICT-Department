@@ -8,6 +8,8 @@ import Image from 'next/image'
 import Logo from '../public/img/bup.png'
 import Link from 'next/link'
 import LoginRoundedIcon from '@mui/icons-material/LoginRounded'
+import { styled } from '@mui/material/styles'
+import Tooltip, { TooltipProps, tooltipClasses } from '@mui/material/Tooltip'
 
 const Navbar = () => {
 
@@ -15,7 +17,7 @@ const Navbar = () => {
         window.addEventListener("scroll", handlenavBgOnScroll);
         return () => window.removeEventListener("scroll", handlenavBgOnScroll)
     },)
-    
+
     const [navBgOnScroll, setNavBgOnScroll] = useState(false)
     const [anchorEl, setAnchorEl] = React.useState(null)
     const open = Boolean(anchorEl)
@@ -34,6 +36,26 @@ const Navbar = () => {
       setAnchorEl(null)
     }
 
+    const LightTooltip = styled(({ className, ...props }) => (
+        <Tooltip {...props} classes={{ popper: className }} />
+        ))(({ theme }) => ({
+        [`& .${tooltipClasses.tooltip}`]: {
+          backgroundColor: theme.palette.common.white,
+          color: 'rgba(0, 0, 0, 0.87)',
+          boxShadow: theme.shadows[1],
+          fontSize: 11,
+        },
+      }))
+
+    const about = (
+    <div>
+        <div className='space-y-5 p-5'>
+            <p className='text-black'><Link href="/">Our history</Link></p>
+            <p className='text-black'><Link href="/">Gallery</Link></p>
+        </div>
+    </div>
+    )
+
     return (
             <div>
             <AppBar className={navBgOnScroll?'!bg-teal-700 !transition-all !ease-in-out !duration-500':'!bg-transparent !transition-all !ease-in-out !duration-500'}>
@@ -48,19 +70,21 @@ const Navbar = () => {
                     <div className="md:flex space-x-10 sm:hidden">
 
                         <div>
-                            <Link href="/"><p className="hover:underline hover:cursor-pointer">Home</p></Link>
+                            <Link href="/"><p className="hover:cursor-pointer">Home</p></Link>
                         </div>
                         <div>
-                            <Link href="/"><p className="hover:underline hover:cursor-pointer">Papers</p></Link>
+                            <Link href="/"><p className="hover:cursor-pointer">Papers</p></Link>
                         </div>
                         <div>
-                            <Link href="/"><p className="hover:underline hover:cursor-pointer">News</p></Link>
+                            <Link href="/"><p className="hover:cursor-pointer">News</p></Link>
                         </div>
                         <div>
-                            <Link href="/"><p className="hover:underline hover:cursor-pointer">Notice</p></Link>
+                            <Link href="/"><p className="hover:cursor-pointer">Notice</p></Link>
                         </div>
                         <div>
-                            <Link href="/"><p className="hover:underline hover:cursor-pointer">About</p></Link>
+                        <LightTooltip title={about}>
+                            <p className="hover:cursor-pointer">About</p>
+                        </LightTooltip>
                         </div>
 
                     </div>
