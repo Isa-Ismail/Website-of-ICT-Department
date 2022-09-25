@@ -31,10 +31,10 @@ const Slides = () =>{
         <div className="flex justify-center py-10">
       
           <Slider className="w-[70rem] flex justify-evenly" {...settings}>
-            <CardComponent  title = "BICE" content = "Hello there good people Hello there good people Hello there good people Hello there good people Hello there good people" src = {tech} />
-            <CardComponent  title = "MICE" content = "Hello there good people Hello there good people Hello there good people Hello there good people Hello there good people" src = {sir}/>
-            <CardComponent  title = "MISS" content = "Hello there good people Hello there good people Hello there good people Hello there good people Hello there good people" src = {miss}/>
-            <CardComponent  title = "PHD" content = "Hello there good people Hello there good people Hello there good people Hello there good people Hello there good people" src = {phd}/>
+            <CardComponent  title = "BICE" content = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged." src = {tech} />
+            <CardComponent  title = "MICE" content = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged." src = {sir}/>
+            <CardComponent  title = "MISS" content = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged." src = {miss}/>
+            <CardComponent  title = "PHD" content = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged." src = {phd}/>
           </Slider>	
           
         </div>

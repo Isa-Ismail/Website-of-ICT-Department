@@ -5,8 +5,16 @@ import { Button } from '@mui/material'
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Link from 'next/link';
 import { signin } from '../utils/fetcher';
+import { useContext } from 'react';
+import { Store } from '../utils/store';
+import { useSnackbar } from 'notistack'
 
-const login = () => {
+const Login = () => {
+
+  const { enqueueSnackbar, closeSnackbar } = useSnackbar()
+
+  const {state, dispatch} = useContext(Store)
+
   const [form, setForm] = useState (
     {
       email: '',
@@ -20,9 +28,15 @@ const login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    const response = await signin(email, password)
-    dispatch({ type: 'LOGIN', payload: response.message})
-    console.log(response.message)
+    const response = await signin(form.email, form.password)
+    if(response.token){
+      dispatch({ type: 'LOGIN', payload: response.token})
+      enqueueSnackbar('Welcome to ICT department', {variant: 'success'})
+    }else{
+      dispatch({ type: 'ERROR', payload: response.message})
+      enqueueSnackbar('Wrong credentials', {variant: 'error'})
+    }
+    console.log(response)
   }
 
   return (
@@ -69,4 +83,4 @@ const login = () => {
   )
 }
 
-export default login
+export default Login

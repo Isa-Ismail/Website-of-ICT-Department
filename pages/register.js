@@ -7,8 +7,16 @@ import Link from 'next/link'
 import { signup } from '../utils/fetcher'
 import { useContext } from 'react'
 import { Store } from '../utils/store'
+import { useRouter } from 'next/router'
+import { useSnackbar } from 'notistack'
 
-const login = () => {
+const Register = () => {
+
+  const { enqueueSnackbar, closeSnackbar } = useSnackbar()
+
+  const [warn, setWarn] = useState(false)
+
+  const router = useRouter ()
 
   const {state, dispatch} = useContext(Store)
   console.log(state)
@@ -38,9 +46,13 @@ const login = () => {
   }
 
   const handleSubmit = async (e) => {
+
     e.preventDefault()
-    const response = await signup(username, email, password, phone, country, city)
+
+    signup(username, email, password, phone, country, city).then( response => {
+
     dispatch({ type: 'REGISTER', payload: response.message})
+
     setForm( {
       username:'',
       email: '',
@@ -49,7 +61,15 @@ const login = () => {
       country: '',
       phone: ''
     } )
-    console.log(response.message)
+
+    if(response.message==="User created, please Log in"){
+      router.push("/login")
+      enqueueSnackbar('You are signed up please login', {variant: 'success'})
+    }else{
+      enqueueSnackbar('Please give proper credentials', {variant: 'error'})
+    }
+
+    })
   }
 
   return (
@@ -141,4 +161,4 @@ const login = () => {
   )
 }
 
-export default login
+export default Register
