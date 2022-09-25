@@ -56,6 +56,15 @@ const Navbar = () => {
     </div>
     )
 
+    const people = (
+        <div>
+            <div className='space-y-5 p-5'>
+                <p className='text-black'><Link href="/admin">Admin people</Link></p>
+                <p className='text-black'><Link href="/people">Faculty members</Link></p>
+            </div>
+        </div>
+    )
+
     return (
             <div>
             <AppBar className={navBgOnScroll?'!bg-teal-700 !transition-all !ease-in-out !duration-500':'!bg-transparent !transition-all !ease-in-out !duration-500'}>
@@ -84,6 +93,11 @@ const Navbar = () => {
                         <div>
                         <LightTooltip title={about}>
                             <p className="hover:cursor-pointer">About</p>
+                        </LightTooltip>
+                        </div>
+                        <div>
+                        <LightTooltip title={people}>
+                            <p className="hover:cursor-pointer">People</p>
                         </LightTooltip>
                         </div>
 

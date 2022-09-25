@@ -59,8 +59,8 @@ const Banner = () => {
               <img className="h-[18rem] w-[30rem] rounded-md" src="/img/self.jpg" alt="bup" />
           </div>
           <div className="sm:hidden md:flex space-x-2">
-              <img className="h-[15rem] w-[15rem] rounded-md" src="/img/dean.png" alt="bup" />
-              <img className="h-[15rem] w-[15rem] rounded-md" src="/img/champ.jpg" alt="bup" />
+              <img className="h-[12rem] w-[15rem] rounded-md" src="/img/dean.png" alt="bup" />
+              <img className="h-[12rem] w-[15rem] rounded-md" src="/img/champ.jpg" alt="bup" />
           </div>
         </div>
 
