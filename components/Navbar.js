@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { AppBar } from '@mui/material'
+import { AppBar, Avatar } from '@mui/material'
 import MenuIcon from '@mui/icons-material/Menu'
 import Button from '@mui/material/Button'
 import Menu from '@mui/material/Menu'
@@ -10,6 +10,9 @@ import Link from 'next/link'
 import LoginRoundedIcon from '@mui/icons-material/LoginRounded'
 import { styled } from '@mui/material/styles'
 import Tooltip, { TooltipProps, tooltipClasses } from '@mui/material/Tooltip'
+import { useContext } from 'react'
+import { Logout, LogoutRounded } from '@mui/icons-material'
+import { Store } from '../utils/store'
 
 const Navbar = () => {
 
@@ -17,6 +20,8 @@ const Navbar = () => {
         window.addEventListener("scroll", handlenavBgOnScroll);
         return () => window.removeEventListener("scroll", handlenavBgOnScroll)
     },)
+
+    const {state, dispatch} = useContext(Store)
 
     const [navBgOnScroll, setNavBgOnScroll] = useState(false)
     const [anchorEl, setAnchorEl] = React.useState(null)
@@ -59,8 +64,17 @@ const Navbar = () => {
     const people = (
         <div>
             <div className='space-y-5 p-5'>
-                <p className='text-black'><Link href="/admin">Admin people</Link></p>
-                <p className='text-black'><Link href="/people">Faculty members</Link></p>
+                <p className='text-black'><Link href="/">Admin people</Link></p>
+                <p className='text-black'><Link href="/">Faculty members</Link></p>
+            </div>
+        </div>
+    )
+
+    const login = (
+        <div>
+            <div className='space-y-5 p-5'>
+                <Link href="/"><p className='text-black flex items-center space-x-2 hover:cursor-pointer'><Avatar /> <span>Profile</span></p></Link>
+                <p onClick = {()=>dispatch({type: "CLEAR_USER"})} className='text-black'><LogoutRounded /> <Link href= "/" >Log out</Link></p>
             </div>
         </div>
     )
@@ -105,11 +119,16 @@ const Navbar = () => {
                     
                     <div className='flex-grow'></div>
 
-                    <div className="md:flex sm:hidden">
+                    {state.userInfo.username?(<div>
+                        <LightTooltip title={login}>
+                            <p className="hover:cursor-pointer flex items-center space-x-5"><Avatar /> <span>{state.userInfo.username}</span></p>
+                        </LightTooltip>
+                        </div>):(<div className="md:flex sm:hidden">
                         <div className="flex space-x-10">
                             <Link href="/login"><p className="px-3 py-1 rounded-md cursor-pointer"><LoginRoundedIcon /> Login </p></Link>
                         </div>
-                    </div>
+                    </div>)}
+
                     <div className="md:hidden">
                         <div>
                             <Button

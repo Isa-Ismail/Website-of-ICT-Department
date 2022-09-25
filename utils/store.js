@@ -28,6 +28,10 @@ const reducer = (state, action) => {
             return {
                 ...state, message: action.payload
             }
+        case 'CLEAR_USER':
+            return {
+                ...state, userInfo: {}
+            }
         default:
             return state
     }

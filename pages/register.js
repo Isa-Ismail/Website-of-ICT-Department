@@ -76,10 +76,10 @@ const Register = () => {
     <Layout>
         <div className='my-[10rem] min-h-screen'>
             <div className="flex justify-center">
-              <div className="bg-gradient-to-t from-cyan-300 via-cyan-200 to-cyan-200 rounded-lg space-y-5 py-5 px-10">
+              <div className="bg-gradient-to-t from-cyan-300 via-cyan-200 to-cyan-200 rounded-lg space-y-5 py-2 px-10">
                   <div>
                     <div className="flex justify-center p-8">
-                      <LockOutlinedIcon className='bg-gradient-to-t from-fuchsia-300 via-pink-200 to-fuchsia-200 text-[6rem] rounded-full p-2' />
+                    <h1 className="text-black">Register</h1>
                     </div>
                     <TextField
                     label="Username" variant="outlined"
