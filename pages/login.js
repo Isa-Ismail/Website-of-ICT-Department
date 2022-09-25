@@ -29,9 +29,12 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     const response = await signin(form.email, form.password)
-    if(response.token){
+    if(response.id){
       dispatch({ type: 'LOGIN', payload: response.token})
-      enqueueSnackbar('Welcome to ICT department', {variant: 'success'})
+      fetch(`https://ict-6.vercel.app/api/auth/${response.id}`).then( res => res.json() ).then(data => {
+        dispatch({ type: 'USER', payload: data})
+      })
+      enqueueSnackbar(`Welcome to ICT department ${state.userInfo.username}`, {variant: 'success'})
     }else{
       dispatch({ type: 'ERROR', payload: response.message})
       enqueueSnackbar('Wrong credentials', {variant: 'error'})

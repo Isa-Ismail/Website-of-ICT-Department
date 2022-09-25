@@ -20,6 +20,10 @@ const reducer = (state, action) => {
             return {
                 ...state, userToken: action.payload
             }
+        case 'USER':
+            return {
+                ...state, userInfo: action.payload
+            }
         case 'REGISTER':
             return {
                 ...state, message: action.payload
