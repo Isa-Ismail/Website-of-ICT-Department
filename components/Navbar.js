@@ -64,8 +64,8 @@ const Navbar = () => {
     const people = (
         <div>
             <div className='space-y-5 p-5'>
-                <p className='text-black'><Link href="/">Admin people</Link></p>
-                <p className='text-black'><Link href="/">Faculty members</Link></p>
+                <p className='text-black'><Link href="/admin">Admin people</Link></p>
+                <p className='text-black'><Link href="/people">Faculty members</Link></p>
             </div>
         </div>
     )
