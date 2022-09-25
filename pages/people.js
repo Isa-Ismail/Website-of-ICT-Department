@@ -1,12 +1,12 @@
 import React from 'react'
 import Layout from '../components/Layout'
-
-const People = () => {
+import People from '../components/People/People'
+const PeoplePage = () => {
   return (
     <Layout>
-
+      <People />
     </Layout>
   )
 }
 
-export default People
+export default PeoplePage

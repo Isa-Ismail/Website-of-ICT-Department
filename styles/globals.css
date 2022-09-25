@@ -16,22 +16,23 @@ body{
     background-size: cover;
 }
 h1{
-    font-size: 3rem;
-    font-weight: 700;
+    font-size: 2rem;
+    font-weight: 500;
     color:beige
 }
 h2{
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     color: beige;
-    font-weight: 700;
+    font-weight: 400;
 }
 h3{
-    font-size: 1.1rem;
+    font-size: .8rem;
     font-weight: 700;
     color: beige
 }
 p{
-    font-size: .8rem;
+    font-size: 1rem;
+    font-weight: 100;
     color: beige;
 }
 
@@ -49,5 +50,113 @@ p{
     background-image: url("/img/girls.png");
     background-attachment: fixed;
     min-height: 100vh;
-    padding-top: 5rem;
 }
+
+div.mob_info{ 
+    display:table; 
+    vertical-align:middle; 
+    background:#f8f8f8; 
+    width:100%; 
+    border-bottom:1px solid #eee;
+    margin-bottom: 10px;
+    
+    justify-content: space-between;}
+
+div.mob_info >div{ display:table-cell;
+     vertical-align:middle; 
+     text-align:left; 
+     padding:5px 0;
+     box-shadow: 0px 0px 9px 0px rgba(0,0,0,0.1);}
+
+div.mob_info >div.mob_label{ 
+    padding-left:10px; 
+    background:#95A5A6; 
+    
+    
+    width:32%}
+
+div.mob_info >div.mob_value{ padding-left:10px;
+    background:#ccc; 
+}
+
+div.mob_info_officer_img{ 
+    background:rgba(238, 238, 238, 0.138); 
+    width:100%; 
+    padding:10px 0; 
+    margin-top:15px;
+}
+
+div.mob_info_officer_img div.img{width:80px; 
+    height:80px; 
+    background:#ccc;
+    border-radius:100%; 
+    overflow:hidden; 
+    margin-left:37%;
+}
+
+div.mob_info_officer_img img{ width:80px; 
+    height:80px; 
+    border-radius:100%;
+     /* background:#ccc;  */
+    }
+
+     .container {
+        width: 100%;
+        /* box-shadow: ; */
+        /* background-image: url(/img/image/Home.png); */
+        max-width: 1000px;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 10px;
+        padding-right: 10px;
+       
+       
+       
+      }
+      /* body{
+        background-image: url(/image/Home.png);
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+       font-family:Arial, Helvetica, sans-serif;
+       position: relative;
+       margin: 0;
+       
+       
+      } */
+      h1{
+        color: #eee;
+        margin-top: 0;
+        padding-top: 5rem;
+        padding-bottom: 1rem;
+        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      }
+      
+     /* img.background {
+        background-color: transparent;
+        position: center;
+        left: 0px;
+        top: 0px;
+        z-index: -1;
+        width: 100%;
+        height: 100%;
+        /* -webkit-filter: blur(5px); */
+        /* filter: blur(10px);
+        /* background-position: center; */
+        
+        /* background-size: cover;  */
+
+    
+        /* 
+        filter: blur(30px);
+        background-size: cover; 
+        height: 100%;
+        width: 100%;
+        z-index: -1; 
+     }*/
+      
+       
+        .portion{
+            margin: 1rem 2rem 2rem 4rem;
+        }
+        

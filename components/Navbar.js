@@ -107,7 +107,7 @@ const Navbar = () => {
 
                     <div className="md:flex sm:hidden">
                         <div className="flex space-x-10">
-                            <Link href="/login"><p className="px-3 py-1 font-bold rounded-md cursor-pointer"><LoginRoundedIcon /> Login </p></Link>
+                            <Link href="/login"><p className="px-3 py-1 rounded-md cursor-pointer"><LoginRoundedIcon /> Login </p></Link>
                         </div>
                     </div>
                     <div className="md:hidden">
