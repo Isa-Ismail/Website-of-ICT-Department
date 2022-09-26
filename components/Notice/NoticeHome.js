@@ -48,7 +48,7 @@ const Slides = () => {
 
 
                 <div>
-                  <Slider className="w-[70rem] flex justify-evenly"  {...settings}>
+                  <Slider className="w-[40rem] flex justify-evenly"  {...settings}>
                     <div className="flex gap-5 justify-center">
                       <div className="col-span-12">
 
@@ -62,7 +62,7 @@ const Slides = () => {
                         <div className={styles.date_description}>
                           <h3 className="text-[#0B3954] text-[1.5rem]">Eestibulum sodales metus.</h3>
                           <p className="text-[#0B3954]">
-                            When an unknown printer took a galley of type and <br />
+                            When an unknown printer took a galley of type and
                             scrambled it to make a type specimen book ...
                           </p>
                           <hr className={styles.event_line} />
@@ -79,40 +79,6 @@ const Slides = () => {
                           <h3 className="text-[#0B3954] text-[1.5rem]">Integer faucibus nulla a ligula.</h3>
                           <p className="text-[#0B3954]">
                             Lorem Ipsum is simply dummy text of the printing and
-                            typesetting industry.<br /> Lorem Ipsum has been the industry's
-                            standard dummy text ever...
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-
-
-                    <div className="flex gap-5 justify-center">
-                      <div className="col-span-12">
-                        <div className={styles.event_date}>
-                          <div className={styles.event_date_wrap}>
-                            <p>06</p>
-                            <span>Nov.17</span>
-                          </div>
-                        </div>
-                        <div className={styles.date_description}>
-                          <h3 className="text-[#0B3954] text-[1.5rem]">Eestibulum sodales metus.</h3>
-                          <p className="text-[#0B3954]">
-                            When an unknown printer took a galley of type and <br />
-                            scrambled it to make a type specimen book ...
-                          </p>
-                          <hr className={styles.event_line} />
-                        </div>
-                        <div className={styles.event_date}>
-                          <div className={styles.event_date_wrap}>
-                            <p>10</p>
-                            <span>Nov.17</span>
-                          </div>
-                        </div>
-                        <div className={styles.date_description}>
-                          <h3 className="text-[#0B3954] text-[1.5rem]">Integer faucibus nulla a ligula.</h3>
-                          <p className="text-[#0B3954]">
-                            Lorem Ipsum is simply dummy text of the printing and <br />
                             typesetting industry. Lorem Ipsum has been the industry's
                             standard dummy text ever...
                           </p>
@@ -132,7 +98,7 @@ const Slides = () => {
                         <div className={styles.date_description}>
                           <h3 className="text-[#0B3954] text-[1.5rem]">Eestibulum sodales metus.</h3>
                           <p className="text-[#0B3954]">
-                            When an unknown printer took a galley of type and <br />
+                            When an unknown printer took a galley of type and
                             scrambled it to make a type specimen book ...
                           </p>
                           <hr className={styles.event_line} />
@@ -146,7 +112,41 @@ const Slides = () => {
                         <div className={styles.date_description}>
                           <h3 className="text-[#0B3954] text-[1.5rem]">Integer faucibus nulla a ligula.</h3>
                           <p className="text-[#0B3954]">
-                            Lorem Ipsum is simply dummy text of the printing and <br />
+                            Lorem Ipsum is simply dummy text of the printing and
+                            typesetting industry. Lorem Ipsum has been the industry's
+                            standard dummy text ever...
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
+
+                    <div className="flex gap-5 justify-center">
+                      <div className="col-span-12">
+                        <div className={styles.event_date}>
+                          <div className={styles.event_date_wrap}>
+                            <p>06</p>
+                            <span>Nov.17</span>
+                          </div>
+                        </div>
+                        <div className={styles.date_description}>
+                          <h3 className="text-[#0B3954] text-[1.5rem]">Eestibulum sodales metus.</h3>
+                          <p className="text-[#0B3954]">
+                            When an unknown printer took a galley of type and
+                            scrambled it to make a type specimen book ...
+                          </p>
+                          <hr className={styles.event_line} />
+                        </div>
+                        <div className={styles.event_date}>
+                          <div className={styles.event_date_wrap}>
+                            <p>10</p>
+                            <span>Nov.17</span>
+                          </div>
+                        </div>
+                        <div className={styles.date_description}>
+                          <h3 className="text-[#0B3954] text-[1.5rem]">Integer faucibus nulla a ligula.</h3>
+                          <p className="text-[#0B3954]">
+                            Lorem Ipsum is simply dummy text of the printing and
                             typesetting industry. Lorem Ipsum has been the industry's
                             standard dummy text ever...
                           </p>
