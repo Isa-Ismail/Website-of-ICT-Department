@@ -115,7 +115,9 @@
 .event_date img {
   float: left;
 }
-
+.event_date_container {
+  width: 100px;
+}
 .event_date_wrap {
   border: 1px dashed #8d84a0;
   margin: 8px 8px;
@@ -158,5 +160,5 @@
 }
 
 .event_line {
-  margin: 40px 0;
+  margin: 30px 0;
 }
