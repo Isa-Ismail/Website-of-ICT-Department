@@ -55,8 +55,8 @@ const Navbar = () => {
     const about = (
         <div>
             <div className='space-y-5 p-5'>
-                <p className='text-black'><Link href="/">Our history</Link></p>
-                <p className='text-black'><Link href="/">Gallery</Link></p>
+                <p className='text-black'><Link href="/about">Our history</Link></p>
+                <p className='text-black'><Link href="/about">Gallery</Link></p>
             </div>
         </div>
     )
@@ -99,7 +99,7 @@ const Navbar = () => {
                             <Link href="/"><p className="hover:cursor-pointer">Papers</p></Link>
                         </div>
                         <div>
-                            <Link href="/"><p className="hover:cursor-pointer">News</p></Link>
+                            <Link href="/notice"><p className="hover:cursor-pointer">News</p></Link>
                         </div>
                         <div>
                             <Link href="/notice"><p className="hover:cursor-pointer">Notice</p></Link>

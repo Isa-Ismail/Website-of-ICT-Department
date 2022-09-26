@@ -1,5 +1,5 @@
 .detailed_chart {
-  background: url(../public/img/ict.png) no-repeat;
+  background: url(../public/img/image/Home.png) no-repeat;
   -webkit-background-size: cover;
   background-size: cover;
   padding: 97px 0;
@@ -13,8 +13,9 @@
 
 .chart_img p {
   display: inline-block;
-  color: #fff;
+  color: black;
   font-size: 46px;
+  background-color: bisque;
   font-weight: 700;
 }
 .chart_img p span {
