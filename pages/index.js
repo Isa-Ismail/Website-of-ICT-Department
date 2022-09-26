@@ -6,19 +6,23 @@ import { sampleReq } from '../utils/fetcher'
 import Research from '../components/Research/Research'
 import { Store } from '../utils/store'
 import { useContext, useEffect } from 'react'
+import NoticeHome from './../components/Notice/NoticeHome'
+import Chart from '../components/Chart/Chart'
 
-const Home = ({data}) => {
+const Home = ({ data }) => {
 
-    const {state, dispatch} = useContext(Store)
+    const { state, dispatch } = useContext(Store)
 
-    useEffect( () => {
-        dispatch({type: 'LOAD', payload: data})
-    }, [] )
+    useEffect(() => {
+        dispatch({ type: 'LOAD', payload: data })
+    }, [])
 
-    return(
+    return (
         <>
-            <Layout description="Website of ICT" title="ICT">             
-                <Banner />   
+            <Layout description="Website of ICT" title="ICT">
+                <Banner />
+                <NoticeHome />
+                <Chart />
                 <Achievements />
                 <Programs />
                 <Research />
@@ -28,7 +32,7 @@ const Home = ({data}) => {
 }
 
 export const getStaticProps = async () => {
-    
+
     return {
         props: {
             data: await sampleReq(),

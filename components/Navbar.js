@@ -16,49 +16,49 @@ import { Store } from '../utils/store'
 
 const Navbar = () => {
 
-    useEffect(()=> {
+    useEffect(() => {
         window.addEventListener("scroll", handlenavBgOnScroll);
         return () => window.removeEventListener("scroll", handlenavBgOnScroll)
     },)
 
-    const {state, dispatch} = useContext(Store)
+    const { state, dispatch } = useContext(Store)
 
     const [navBgOnScroll, setNavBgOnScroll] = useState(false)
     const [anchorEl, setAnchorEl] = React.useState(null)
     const open = Boolean(anchorEl)
     const handlenavBgOnScroll = () => {
         if (window.scrollY >= 300) {
-          setNavBgOnScroll(true);
+            setNavBgOnScroll(true);
         } else {
-          setNavBgOnScroll(false);
+            setNavBgOnScroll(false);
         }
-      }
+    }
 
     const handleClick = (event) => {
-      setAnchorEl(event.currentTarget)
+        setAnchorEl(event.currentTarget)
     };
     const handleClose = () => {
-      setAnchorEl(null)
+        setAnchorEl(null)
     }
 
     const LightTooltip = styled(({ className, ...props }) => (
         <Tooltip {...props} classes={{ popper: className }} />
-        ))(({ theme }) => ({
+    ))(({ theme }) => ({
         [`& .${tooltipClasses.tooltip}`]: {
-          backgroundColor: theme.palette.common.white,
-          color: 'rgba(0, 0, 0, 0.87)',
-          boxShadow: theme.shadows[1],
-          fontSize: 11,
+            backgroundColor: theme.palette.common.white,
+            color: 'rgba(0, 0, 0, 0.87)',
+            boxShadow: theme.shadows[1],
+            fontSize: 11,
         },
-      }))
+    }))
 
     const about = (
-    <div>
-        <div className='space-y-5 p-5'>
-            <p className='text-black'><Link href="/">Our history</Link></p>
-            <p className='text-black'><Link href="/">Gallery</Link></p>
+        <div>
+            <div className='space-y-5 p-5'>
+                <p className='text-black'><Link href="/">Our history</Link></p>
+                <p className='text-black'><Link href="/">Gallery</Link></p>
+            </div>
         </div>
-    </div>
     )
 
     const people = (
@@ -74,14 +74,14 @@ const Navbar = () => {
         <div>
             <div className='space-y-5 p-5'>
                 <Link href="/"><p className='text-black flex items-center space-x-2 hover:cursor-pointer'><Avatar /> <span>Profile</span></p></Link>
-                <p onClick = {()=>dispatch({type: "CLEAR_USER"})} className='text-black'><LogoutRounded /> <Link href= "/" >Log out</Link></p>
+                <p onClick={() => dispatch({ type: "CLEAR_USER" })} className='text-black'><LogoutRounded /> <Link href="/" >Log out</Link></p>
             </div>
         </div>
     )
 
     return (
-            <div>
-            <AppBar className={navBgOnScroll?'!bg-teal-700 !transition-all !ease-in-out !duration-500':'!bg-transparent !transition-all !ease-in-out !duration-500'}>
+        <div>
+            <AppBar className={navBgOnScroll ? '!bg-teal-700 !transition-all !ease-in-out !duration-500' : '!bg-transparent !transition-all !ease-in-out !duration-500'}>
                 <div className="flex md:px-[10rem] sm:px-4 py-5 items-center">
 
                     <div className="hover:cursor-pointer">
@@ -102,28 +102,28 @@ const Navbar = () => {
                             <Link href="/"><p className="hover:cursor-pointer">News</p></Link>
                         </div>
                         <div>
-                            <Link href="/"><p className="hover:cursor-pointer">Notice</p></Link>
+                            <Link href="/notice"><p className="hover:cursor-pointer">Notice</p></Link>
                         </div>
                         <div>
-                        <LightTooltip title={about}>
-                            <p className="hover:cursor-pointer">About</p>
-                        </LightTooltip>
+                            <LightTooltip title={about}>
+                                <p className="hover:cursor-pointer">About</p>
+                            </LightTooltip>
                         </div>
                         <div>
-                        <LightTooltip title={people}>
-                            <p className="hover:cursor-pointer">People</p>
-                        </LightTooltip>
+                            <LightTooltip title={people}>
+                                <p className="hover:cursor-pointer">People</p>
+                            </LightTooltip>
                         </div>
 
                     </div>
-                    
+
                     <div className='flex-grow'></div>
 
-                    {state.userInfo.username?(<div>
+                    {state.userInfo.username ? (<div>
                         <LightTooltip title={login}>
                             <p className="hover:cursor-pointer flex items-center space-x-5"><Avatar /> <span>{state.userInfo.username}</span></p>
                         </LightTooltip>
-                        </div>):(<div className="md:flex sm:hidden">
+                    </div>) : (<div className="md:flex sm:hidden">
                         <div className="flex space-x-10">
                             <Link href="/login"><p className="px-3 py-1 rounded-md cursor-pointer"><LoginRoundedIcon /> Login </p></Link>
                         </div>
@@ -146,7 +146,7 @@ const Navbar = () => {
                                 open={open}
                                 onClose={handleClose}
                                 MenuListProps={{
-                                'aria-labelledby': 'basic-button',
+                                    'aria-labelledby': 'basic-button',
                                 }}
                             >
                                 <MenuItem onClick={handleClose}>Home</MenuItem>
@@ -161,8 +161,8 @@ const Navbar = () => {
 
                 </div>
             </AppBar>
-            </div>           
-  )
+        </div>
+    )
 }
 
 export default Navbar
