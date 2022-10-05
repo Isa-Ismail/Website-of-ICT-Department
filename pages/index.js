@@ -12,7 +12,7 @@ import Chart from '../components/Chart/Chart'
 const Home = ({ data }) => {
 
     const { state, dispatch } = useContext(Store)
-
+    console.log(data)
     useEffect(() => {
         dispatch({ type: 'LOAD', payload: data })
     }, [])

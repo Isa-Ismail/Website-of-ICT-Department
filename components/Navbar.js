@@ -27,7 +27,7 @@ const Navbar = () => {
     const [anchorEl, setAnchorEl] = React.useState(null)
     const open = Boolean(anchorEl)
     const handlenavBgOnScroll = () => {
-        if (window.scrollY >= 300) {
+        if (window.scrollY >= 50) {
             setNavBgOnScroll(true);
         } else {
             setNavBgOnScroll(false);
@@ -73,7 +73,7 @@ const Navbar = () => {
     const login = (
         <div>
             <div className='space-y-5 p-5'>
-                <Link href="/"><p className='text-black flex items-center space-x-2 hover:cursor-pointer'><Avatar /> <span>Profile</span></p></Link>
+                <Link href="/dashboard"><p className='text-black flex items-center space-x-2 hover:cursor-pointer'><Avatar /> <span>Profile</span></p></Link>
                 <p onClick={() => dispatch({ type: "CLEAR_USER" })} className='text-black'><LogoutRounded /> <Link href="/" >Log out</Link></p>
             </div>
         </div>
