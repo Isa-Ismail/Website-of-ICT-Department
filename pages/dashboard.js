@@ -5,10 +5,14 @@ import React, { useContext, useEffect } from 'react'
 import { useState } from 'react'
 import Layout from '../components/Layout'
 import { Store } from '../utils/store'
+import { postPub, postNotice } from '../utils/fetcher'
+import { useSnackbar } from 'notistack'
 
 const Dash = () => {
 
     const router = useRouter ()
+
+    const { enqueueSnackbar, closeSnackbar } = useSnackbar()
 
     const {state, dispatch} = useContext(Store)
     console.log(state.userInfo._id)
@@ -19,10 +23,29 @@ const Dash = () => {
         })
     }
 
+    const handleSubNotice = async () => {
+        if(notice.message&&notice.regards&&notice.title) {
+            const mes = await postNotice(notice.title, notice.message, notice.regards)
+            enqueueSnackbar(mes.message, {variant: 'success'})
+        }else{
+            enqueueSnackbar('please fill required fields', {variant: 'error'})
+        }
+    }
+
+    const handleSubPub = async () => {
+        if(pub.title&&pub.author&&pub.published&&pub.journal&&pub.url) {
+            const mes = await postNotice(pub.title, pub.author, pub.published, pub.journal, pub.url)
+            enqueueSnackbar(mes.message, {variant: 'success'})
+        }else{
+            enqueueSnackbar('please fill required fields', {variant: 'error'})
+        }
+    }
+
     const [pub, setPub] = useState({
         title: '',
         author: '',
         published: '',
+        journal: '',
         userId: state.userInfo._id,
         url: ''
     })
@@ -40,7 +63,7 @@ const Dash = () => {
         })
     }
 
-    console.log(pub)
+    console.log(notice)
 
     useEffect(()=> {
         if(!state.userInfo){
@@ -79,35 +102,38 @@ const Dash = () => {
                     className="w-[20rem]"
                     label="Title" 
                     variant="outlined"
-                    name='email'
+                    name='title'
+                    value={notice.title}
                     multiline
-                    value=''
-                    onChange={()=>{}}
+                    onChange={handleChangeNotice}
                     />
                     </div>
                     <div className="">
                     <TextField 
                     className="w-[20rem]"
                     id="outlined-multiline-static"
+                    name='message'
+                    value={notice.message}
                     label="Brief"
                     multiline
                     rows={4}
                     placeholder="Type here"
+                    onChange={handleChangeNotice}
                     />
                     </div>
                     <div className="">
                     <TextField  
                     className="w-[20rem]"
                     label="Regards" 
-                    variant="outlined"
-                    name='email'
+                    variant="outlined"      
+                    name='regards'
                     multiline
-                    value=''
-                    onChange={()=>{}}
+                    value={notice.regards}
+                    onChange={handleChangeNotice}
                     />
                     </div>
                   <div className="flex py-4">
-                    <Button className="bg-blue-400" onClick={()=>{}} variant="contained">Post</Button>
+                    <Button className="bg-blue-400" onClick={handleSubNotice} variant="contained">Post</Button>
                   </div>
                 </div>
                 <div className='p-20 space-y-10'>
@@ -150,6 +176,18 @@ const Dash = () => {
                     onChange={handleChangePub}
                     />
                     </div>
+                    <div className="">
+                    <TextField  
+                    className="w-[20rem]"
+                    label="journal" 
+                    placeholder='https://yourwebsitesurl.com'
+                    variant="outlined"
+                    name='journal'
+                    multiline
+                    value={pub.journal}
+                    onChange={handleChangePub}
+                    />
+                    </div>
                     <div className="flex items-center space-x-4">
                     <label>
                         Published date
@@ -163,7 +201,7 @@ const Dash = () => {
                     />
                     </div>
                   <div className="flex py-4">
-                    <Button className="bg-blue-400" onClick={()=>{}} variant="contained">Post</Button>
+                    <Button className="bg-blue-400" onClick={handleSubPub} variant="contained">Post</Button>
                   </div>
                 </div>
             </div>

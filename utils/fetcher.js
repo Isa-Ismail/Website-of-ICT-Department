@@ -62,7 +62,7 @@ export const signin = async (email, password) => {
     return data
 }
 
-export const postPub = async (email, password) => {
+export const postPub = async (title, author, published, journal, url) => {
     const res = await fetch ('https://ict-6.vercel.app/api/publications',{
     
     //Define method
@@ -70,8 +70,7 @@ export const postPub = async (email, password) => {
      
     // Adding body or contents to send
     body: JSON.stringify({
-        email, 
-        password,
+        title, author, published, journal, url
     }),
      
     // Adding headers to the request
@@ -88,7 +87,7 @@ export const postPub = async (email, password) => {
     return data
 }
 
-export const postNotice = async (email, password) => {
+export const postNotice = async (title, message, regards) => {
     const res = await fetch ('https://ict-6.vercel.app/api/notice',{
     
     //Define method
@@ -96,8 +95,7 @@ export const postNotice = async (email, password) => {
      
     // Adding body or contents to send
     body: JSON.stringify({
-        email, 
-        password,
+        title, message, regards
     }),
      
     // Adding headers to the request
