@@ -8,6 +8,7 @@ import { Store } from '../utils/store'
 import { useContext, useEffect } from 'react'
 import NoticeHome from './../components/Notice/NoticeHome'
 import Chart from '../components/Chart/Chart'
+import Header from '../components/Header'
 
 const Home = ({ data }) => {
 
@@ -20,7 +21,7 @@ const Home = ({ data }) => {
     return (
         <>
             <Layout description="Website of ICT" title="ICT">
-                <Banner />
+                <Header />
                 <NoticeHome />
                 <Chart />
                 <Achievements />

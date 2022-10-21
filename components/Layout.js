@@ -3,11 +3,11 @@ import Navbar from "./Navbar"
 import Footer from "./Footer"
 
 const Layout = ({ children, title, description }) => {
-    return(
+    return (
         <div>
 
             <Head>
-                <title>{title? `${title}`:`custom title`}</title>
+                <title>{title ? `${title}` : `custom title`}</title>
                 {description && <meta name="description" content={description}></meta>}
             </Head>
 
