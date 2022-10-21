@@ -74,7 +74,7 @@ const Navbar = () => {
         <div>
             <div className='space-y-5 p-5'>
                 <Link href="/dashboard"><p className='text-black flex items-center space-x-2 hover:cursor-pointer'><Avatar /> <span>Profile</span></p></Link>
-                <p onClick={() => dispatch({ type: "CLEAR_USER" })} className='text-black'><LogoutRounded /> <Link href="/" >Log out</Link></p>
+                <Link href="/" ><p onClick={() => dispatch({ type: "CLEAR_USER" })} className='text-black flex items-center space-x-2 hover:cursor-pointer'><LogoutRounded />Log out</p></Link>
             </div>
         </div>
     )
@@ -85,7 +85,12 @@ const Navbar = () => {
                 <div className="flex md:px-[10rem] sm:px-4 py-5 items-center">
 
                     <div className="hover:cursor-pointer">
-                        <Link href="/"><Image src={Logo} height={50} width={50} /></Link>
+                        <Link href="/">
+                            <div className='flex items-center space-x-4'>
+                                <Image src={Logo} height={50} width={50} />
+                                <span className="self-center text-xl font-medium whitespace-nowrap dark:text-white">BUP | ICT</span>
+                            </div>
+                        </Link>
                     </div>
 
                     <div className='flex-grow'></div>
@@ -96,7 +101,7 @@ const Navbar = () => {
                             <Link href="/"><p className="hover:cursor-pointer">Home</p></Link>
                         </div>
                         <div>
-                            <Link href="/"><p className="hover:cursor-pointer">Papers</p></Link>
+                            <Link href="/"><p className="hover:cursor-pointer">Research</p></Link>
                         </div>
                         <div>
                             <Link href="/notice"><p className="hover:cursor-pointer">News</p></Link>

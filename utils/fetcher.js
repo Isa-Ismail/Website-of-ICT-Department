@@ -62,3 +62,54 @@ export const signin = async (email, password) => {
     return data
 }
 
+export const postPub = async (email, password) => {
+    const res = await fetch ('https://ict-6.vercel.app/api/publications',{
+    
+    //Define method
+    method: "POST",
+     
+    // Adding body or contents to send
+    body: JSON.stringify({
+        email, 
+        password,
+    }),
+     
+    // Adding headers to the request
+    headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+    }
+    })
+
+    const data = await res.json()
+
+    console.log(data)
+
+    return data
+}
+
+export const postNotice = async (email, password) => {
+    const res = await fetch ('https://ict-6.vercel.app/api/notice',{
+    
+    //Define method
+    method: "POST",
+     
+    // Adding body or contents to send
+    body: JSON.stringify({
+        email, 
+        password,
+    }),
+     
+    // Adding headers to the request
+    headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+    }
+    })
+
+    const data = await res.json()
+
+    console.log(data)
+
+    return data
+}
