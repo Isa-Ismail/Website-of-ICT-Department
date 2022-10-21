@@ -1,5 +1,5 @@
 import { LocationCitySharp, Logout, MailOutline, Phone } from '@mui/icons-material'
-import { Avatar, TextField, Button } from '@mui/material'
+import { Avatar, TextField, Button, InputLabel, MenuItem, FormControl } from '@mui/material'
 import { useRouter } from 'next/router'
 import React, { useContext, useEffect } from 'react'
 import { useState } from 'react'
@@ -7,6 +7,7 @@ import Layout from '../components/Layout'
 import { Store } from '../utils/store'
 import { postPub, postNotice } from '../utils/fetcher'
 import { useSnackbar } from 'notistack'
+import Select from '@mui/material/Select'
 
 const Dash = () => {
 
@@ -24,9 +25,15 @@ const Dash = () => {
     }
 
     const handleSubNotice = async () => {
-        if(notice.message&&notice.regards&&notice.title) {
-            const mes = await postNotice(notice.title, notice.message, notice.regards)
+        if(notice.message&&notice.regards&&notice.title&&notice.batch&&notice.date) {
+            const mes = await postNotice(notice.title, notice.message, notice.regards, notice.batch, notice.date)
             enqueueSnackbar(mes.message, {variant: 'success'})
+            setNotice({title: '',
+            message: '',
+            regards: '',
+            date:'',
+            batch: '',
+            userId: state.userInfo._id,})
         }else{
             enqueueSnackbar('please fill required fields', {variant: 'error'})
         }
@@ -54,6 +61,8 @@ const Dash = () => {
         title: '',
         message: '',
         regards: '',
+        date:'',
+        batch: '',
         userId: state.userInfo._id,
     })
 
@@ -74,7 +83,7 @@ const Dash = () => {
     return (
     <Layout>
         <div className="flex">
-            <div className="w-[20rem] bg-slate-800 min-h-screen mt-[5.6rem]">
+            <div className="w-[20rem] bg-slate-800 min-h-screen mt-[5rem]">
                 <div className="p-4 flex space-x-4 items-center">
                     <Avatar />
                     <p>{state.userInfo.username}</p>
@@ -93,7 +102,7 @@ const Dash = () => {
                 </div>
             </div>
             <div className="min-h-screen mt-22 w-screen bg-slate-200 flex justify-evenly"> 
-                <div className='p-20 space-y-10'>
+                <div className='p-20 space-y-5'>
                 <div>
                     <h1 className="text-black">Update Notices</h1>
                 </div>
@@ -122,6 +131,37 @@ const Dash = () => {
                     />
                     </div>
                     <div className="">
+                    <FormControl fullWidth>
+                        <InputLabel id="demo-simple-select-label">Batch</InputLabel>
+                        <Select
+                        labelId="demo-simple-select-label"
+                        id="demo-simple-select"
+                        value={notice.batch}
+                        name='batch'
+                        label="Age"
+                        onChange={handleChangeNotice}
+                        >
+                        <MenuItem value={'first'}>first</MenuItem>
+                        <MenuItem value={'second'}>second</MenuItem>
+                        <MenuItem value={'third'}>third</MenuItem>
+                        <MenuItem value={'fourth'}>fourth</MenuItem>
+                        <MenuItem value={'MS'}>MS</MenuItem>
+                        </Select>
+                    </FormControl>
+                    </div>
+                    <div className="flex items-center space-x-4">
+                    <label>
+                        date
+                    </label>
+                    <TextField  
+                    className="w-[17rem]"
+                    type="date"
+                    name="date"
+                    value={notice.date}
+                    onChange={handleChangeNotice}
+                    />
+                    </div>
+                    <div className="">
                     <TextField  
                     className="w-[20rem]"
                     label="Regards" 
@@ -136,7 +176,7 @@ const Dash = () => {
                     <Button className="bg-blue-400" onClick={handleSubNotice} variant="contained">Post</Button>
                   </div>
                 </div>
-                <div className='p-20 space-y-10'>
+                <div className='p-20 space-y-5'>
                 <div>
                     <h1 className="text-black">Update publications</h1>
                 </div>

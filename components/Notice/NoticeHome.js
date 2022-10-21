@@ -19,7 +19,7 @@ const Slides = () => {
 
 
 
-      <div className="styles.flex justify-center py-10">
+      <div className="styles.flex justify-center">
         <section className={styles.event}>
           <div className="flex gap-5 justify-center">
             <div className="space-x-4 flex flex-wrap gap-6">
