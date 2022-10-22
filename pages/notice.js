@@ -1,8 +1,66 @@
-import React from 'react'
+import { useEffect, useState } from 'react'
 import Layout from './../components/Layout'
 import styles from '../styles/Notice.module.css'
 
 const notice = () => {
+
+  const [notices, setNotices] = useState([]);
+  const [batch, setBatch] = useState('');
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch('https://ict-6.vercel.app/api/notice/')
+        const data = await response.json();
+        setNotices(data);
+      } catch (error) {
+        console.log(error)
+      }
+    }
+    fetchData();
+  }, [])
+
+
+
+
+
+  //content = notices.filter(notice => notice.batch === 'first')
+  // console.log(content)
+  let content = [];
+  content = notices?.filter(notice => (batch === '') ? true : (notice.batch === batch)).map(notice => {
+    var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    let created_date = '';
+    let year = ''
+    let month = ''
+    let date = ''
+    created_date = new Date(notice?.date);
+    year = created_date.getFullYear();
+    month = months[created_date.getMonth()];
+    date = created_date.getDate();
+    return (
+      <div>
+        <div className={styles.event_date}>
+          <div className={styles.event_date_wrap}>
+            <p>{date}</p>
+            <span>{month}.{year}</span>
+          </div>
+        </div>
+        <div className={styles.date_description}>
+          <h3 >{notice.title}</h3>
+          <p >
+            {notice.message}
+          </p>
+          <button className="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-green-700 rounded hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800 my-6">
+            Read..
+          </button>
+          <hr className={styles.event_line} />
+        </div>
+      </div>
+    )
+  })
+
+
+
+
   return (
     <Layout>
       <div className='my-[10rem] min-h-screen'>
@@ -11,137 +69,27 @@ const notice = () => {
         </div>
         <div className="flex-col ">
           <div className='flex text-white'>
-            <p className=' text-white bg-green-700 hover:bg-teal-500 py-4 px-8 border-solid border-2 border-white cursor-pointer'>General</p>
-            <p className=' text-white bg-green-700 hover:bg-teal-500 py-4 px-8 border-solid border-2 border-white cursor-pointer'>1st</p>
-            <p className=' text-white bg-green-700 hover:bg-teal-500 py-4 px-8 border-solid border-2 border-white cursor-pointer'>2nd</p>
-            <p className=' text-white bg-green-700 hover:bg-teal-500 py-4 px-8 border-solid border-2 border-white cursor-pointer'>3rd</p>
-            <p className=' text-white bg-green-700 hover:bg-teal-500 py-4 px-8 border-solid border-2 border-white cursor-pointer'>4th</p>
-            <p className=' text-white bg-green-700 hover:bg-teal-500 py-4 px-8 border-solid border-2 border-white cursor-pointer'>MS</p>
+            {/* "inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-green-700 rounded hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800 my-6" */}
+            <p className='text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800 py-4 px-8 border-solid border-2 cursor-pointer' onClick={() => setBatch('')}>General</p>
+            <p className='text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800 py-4 px-8 border-solid border-2 cursor-pointer' onClick={() => setBatch('first')}>1st</p>
+            <p className='text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800 py-4 px-8 border-solid border-2 cursor-pointer' onClick={() => setBatch('second')}>2nd</p>
+            <p className='text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800 py-4 px-8 border-solid border-2 cursor-pointer' onClick={() => setBatch('third')}>3rd</p>
+            <p className='text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800 py-4 px-8 border-solid border-2 cursor-pointer' onClick={() => setBatch('fourth')}>4th</p>
+            <p className='text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800 py-4 px-8 border-solid border-2 cursor-pointer' onClick={() => setBatch('ms')}>MS</p>
           </div>
           <div className="p-6 border-solid border-2 border-white">
-
-            <div className={styles.event_date}>
-              <div className={styles.event_date_wrap}>
-                <p>06</p>
-                <span>Nov.17</span>
-              </div>
-            </div>
-            <div className={styles.date_description}>
-              <h3 >Eestibulum sodales metus.</h3>
-              <p >
-                When an unknown printer took a galley of type and
-                scrambled it to make a type specimen book ...
-              </p>
-              <button className="bg-teal-700  hover:bg-teal-500 text-white font-bold py-1 px-3 rounded mt-3">
-                Read..
-              </button>
-              <hr className={styles.event_line} />
-            </div>
-
-
-            <div className={styles.event_date}>
-              <div className={styles.event_date_wrap}>
-                <p>06</p>
-                <span>Nov.17</span>
-              </div>
-            </div>
-            <div className={styles.date_description}>
-              <h3 className='text-white'>Eestibulum sodales metus.</h3>
-              <p className='text-white'>
-                When an unknown printer took a galley of type and
-                scrambled it to make a type specimen book ...
-              </p>
-              <button className="bg-teal-700  hover:bg-teal-500 text-white font-bold py-1 px-3 rounded mt-3">
-                Read..
-              </button>
-              <hr className={styles.event_line} />
-            </div>
-
-
-
-            <div className={styles.event_date}>
-              <div className={styles.event_date_wrap}>
-                <p>06</p>
-                <span>Nov.17</span>
-              </div>
-            </div>
-            <div className={styles.date_description}>
-              <h3>Eestibulum sodales metus.</h3>
-              <p>
-                When an unknown printer took a galley of type and
-                scrambled it to make a type specimen book ...
-              </p>
-              <button className="bg-teal-700  hover:bg-teal-500 text-white font-bold py-1 px-3 rounded mt-3">
-                Read..
-              </button>
-              <hr className={styles.event_line} />
-            </div>
-
-
-            <div className={styles.event_date}>
-              <div className={styles.event_date_wrap}>
-                <p>06</p>
-                <span>Nov.17</span>
-              </div>
-            </div>
-            <div className={styles.date_description}>
-              <h3>Eestibulum sodales metus.</h3>
-              <p>
-                When an unknown printer took a galley of type and
-                scrambled it to make a type specimen book ...
-              </p>
-              <button className="bg-teal-700  hover:bg-teal-500 text-white font-bold py-1 px-3 rounded mt-3">
-                Read..
-              </button>
-              <hr className={styles.event_line} />
-            </div>
-            <div className={styles.event_date}>
-              <div className={styles.event_date_wrap}>
-                <p>06</p>
-                <span>Nov.17</span>
-              </div>
-            </div>
-            <div className={styles.date_description}>
-              <h3>Eestibulum sodales metus.</h3>
-              <p>
-                When an unknown printer took a galley of type and
-                scrambled it to make a type specimen book ...
-              </p>
-              <button className="bg-teal-700  hover:bg-teal-500 text-white font-bold py-1 px-3 rounded mt-3">
-                Read..
-              </button>
-              <hr className={styles.event_line} />
-            </div>
-            <div className={styles.event_date}>
-              <div className={styles.event_date_wrap}>
-                <p>06</p>
-                <span>Nov.17</span>
-              </div>
-            </div>
-            <div className={styles.date_description}>
-              <h3>Eestibulum sodales metus.</h3>
-              <p>
-                When an unknown printer took a galley of type and
-                scrambled it to make a type specimen book ...
-              </p>
-              <button className="bg-teal-700  hover:bg-teal-500 text-white font-bold py-1 px-3 rounded mt-3">
-                Read..
-              </button>
-              <hr className={styles.event_line} />
-            </div>
-
+            {content}
           </div>
-
         </div>
 
         <div className='text-center mt-6'>
-          <button className="bg-teal-700  hover:bg-teal-500 text-white font-bold py-4 px-8 border  rounded ">
-            Button
+          <button className=" inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-green-700 rounded hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800 my-6">
+            See More
           </button>
         </div>
       </div>
 
-    </Layout>
+    </Layout >
   )
 }
 

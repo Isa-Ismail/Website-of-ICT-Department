@@ -101,7 +101,7 @@ const Navbar = () => {
                             <Link href="/"><p className="hover:cursor-pointer">Home</p></Link>
                         </div>
                         <div>
-                            <Link href="/"><p className="hover:cursor-pointer">Research</p></Link>
+                            <Link href="/research/research"><p className="hover:cursor-pointer">Research</p></Link>
                         </div>
                         <div>
                             <Link href="/notice"><p className="hover:cursor-pointer">News</p></Link>
