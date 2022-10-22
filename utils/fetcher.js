@@ -87,7 +87,7 @@ export const postPub = async (title, author, published, journal, url) => {
     return data
 }
 
-export const postNotice = async (title, message, regards) => {
+export const postNotice = async (title, message, regards, batch, date) => {
     const res = await fetch ('https://ict-6.vercel.app/api/notice',{
     
     //Define method
@@ -95,7 +95,7 @@ export const postNotice = async (title, message, regards) => {
      
     // Adding body or contents to send
     body: JSON.stringify({
-        title, message, regards
+        title, message, regards, batch, date
     }),
      
     // Adding headers to the request

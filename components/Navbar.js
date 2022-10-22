@@ -81,13 +81,13 @@ const Navbar = () => {
 
     return (
         <div>
-            <AppBar className={navBgOnScroll ? '!bg-slate-800 !transition-all !ease-in-out !duration-500' : '!bg-slate-800 !transition-all !ease-in-out !duration-500'}>
+            <AppBar className={navBgOnScroll ? '!bg-slate-800 !transition-all !ease-in-out !duration-500' : '!bg-transparent !transition-all !ease-in-out !duration-500'}>
                 <div className="flex md:px-[10rem] sm:px-4 py-5 items-center">
 
                     <div className="hover:cursor-pointer">
                         <Link href="/">
                             <div className='flex items-center space-x-4'>
-                                <Image src={Logo} height={50} width={50} />
+                                <Image src={Logo} height={40} width={40} />
                                 <span className="self-center text-xl font-medium whitespace-nowrap dark:text-white">BUP | ICT</span>
                             </div>
                         </Link>

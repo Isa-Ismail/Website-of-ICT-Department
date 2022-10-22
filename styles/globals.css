@@ -10,7 +10,7 @@ body{
     padding: 0;
     font-family: 'Barlow Condensed', sans-serif;
     font-family: 'Open Sans', sans-serif;
-    background: url("/img/ict.png");
+    background-color: darkslategray;
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;

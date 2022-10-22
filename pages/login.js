@@ -13,8 +13,16 @@ import { useRouter } from 'next/router'
 const Login = () => {
 
   const { enqueueSnackbar, closeSnackbar } = useSnackbar()
+<<<<<<< HEAD
   const router = useRouter()
   const { state, dispatch } = useContext(Store)
+=======
+
+  const router = useRouter()
+
+  const { state, dispatch } = useContext(Store)
+
+>>>>>>> 8b77d35260d3386a04c59758b1dd1f94dfcabeff
   const [form, setForm] = useState(
     {
       email: '',
@@ -44,6 +52,7 @@ const Login = () => {
   }
 
   return (
+<<<<<<< HEAD
     <>
       {/* <Layout>
         <div className='my-[10rem] min-h-screen'>
@@ -125,6 +134,48 @@ const Login = () => {
 
       </Layout>
     </>
+=======
+    <Layout>
+      <div className='my-[10rem] min-h-screen'>
+        <div className="flex justify-center">
+          <div className="bg-gradient-to-t from-cyan-300 via-cyan-200 to-cyan-200 rounded-lg space-y-5 py-5 px-10">
+            <div>
+              <div className="flex justify-center p-8">
+                <h1 className="text-black">Login</h1>
+              </div>
+              <TextField
+                label="Email" variant="outlined"
+                className="w-[25rem]"
+                name='email'
+                multiline
+                maxRows={4}
+                value={form.email}
+                onChange={handleChange}
+              />
+            </div>
+            <div>
+              <TextField
+                margin="normal"
+                required
+                fullWidth
+                name="password"
+                label="Password"
+                value={form.password}
+                onChange={handleChange}
+                type="password"
+                id="password"
+                autoComplete="current-password"
+              />
+            </div>
+            <div className="flex justify-center py-4">
+              <Button className="bg-blue-400" onClick={handleSubmit} variant="contained">Submit</Button>
+            </div>
+            <Link href="/register" >Dont have an account? Register here</Link>
+          </div>
+        </div>
+      </div>
+    </Layout>
+>>>>>>> 8b77d35260d3386a04c59758b1dd1f94dfcabeff
   )
 }
 
