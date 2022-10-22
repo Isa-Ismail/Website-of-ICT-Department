@@ -33,7 +33,7 @@ export default () => {
         <div className="carousel-item active relative float-left w-full">
           <img
             src={images[0]}
-            className="block w-full h-[35rem] object-cover"
+            className="block w-full h-[40rem] object-cover"
             alt="..."
           />
           <div className="carousel-caption hidden md:block absolute text-center">
@@ -55,7 +55,7 @@ export default () => {
         <div className="carousel-item relative float-left w-full">
           <img
             src="https://mdbootstrap.com/img/Photos/Slides/img%20(22).jpg"
-            className="block w-full h-[35rem] object-cover"
+            className="block w-full h-[40rem] object-cover"
             alt="..."
           />
           <div className="carousel-caption hidden md:block absolute text-center">
@@ -77,7 +77,7 @@ export default () => {
         <div className="carousel-item relative float-left w-full">
           <img
             src="https://mdbootstrap.com/img/Photos/Slides/img%20(23).jpg"
-            className="block w-full h-[35rem] object-cover"
+            className="block w-full h-[40rem] object-cover"
             alt="..."
           />
           <div className="carousel-caption hidden md:block absolute text-center">

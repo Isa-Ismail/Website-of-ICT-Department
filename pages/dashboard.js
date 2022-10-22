@@ -83,7 +83,7 @@ const Dash = () => {
     return (
     <Layout>
         <div className="flex">
-            <div className="w-[20rem] bg-slate-800 min-h-screen mt-[5rem]">
+            <div className="w-[20rem] bg-[darkslategray] min-h-screen mt-[5rem]">
                 <div className="p-4 flex space-x-4 items-center">
                     <Avatar />
                     <p>{state.userInfo.username}</p>
@@ -101,7 +101,7 @@ const Dash = () => {
                     <p onClick={()=> {dispatch({type: "CLEAR_USER"}); router.push("/login")} }><Logout/> Log out</p>
                 </div>
             </div>
-            <div className="min-h-screen mt-22 w-screen bg-slate-200 flex justify-evenly"> 
+            <div className="min-h-screen mt-22 w-screen bg-slate-200 flex justify-evenly mt-[5rem]"> 
                 <div className='p-20 space-y-5'>
                 <div>
                     <h1 className="text-black">Update Notices</h1>
@@ -165,7 +165,7 @@ const Dash = () => {
                     <TextField  
                     className="w-[20rem]"
                     label="Regards" 
-                    variant="outlined"      
+                    variant="outlined"
                     name='regards'
                     multiline
                     value={notice.regards}
