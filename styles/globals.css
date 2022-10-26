@@ -10,7 +10,7 @@ body{
     padding: 0;
     font-family: 'Barlow Condensed', sans-serif;
     font-family: 'Open Sans', sans-serif;
-    background-color: rgba(6,73,126,255);
+    background-color: #594545;
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
@@ -18,7 +18,7 @@ body{
 h1{
     font-size: 2rem;
     font-weight: 500;
-    color:beige
+    color:#FFF8EA
 }
 h2{
     font-size: 1.2rem;
@@ -28,12 +28,12 @@ h2{
 h3{
     font-size: .8rem;
     font-weight: 700;
-    color: beige
+    color: #FFF8EA
 }
 p{
     font-size: .8rem;
     font-weight: 100;
-    color: beige;
+    color: #FFF8EA;
 }
 
 * {
@@ -41,7 +41,7 @@ p{
 }
 
 .programs {
-    background-color: azure;
+    background-color: #FFF8EA;
     background-image: url("/img/bg.png");
     background-attachment: fixed;
 }
@@ -49,7 +49,7 @@ p{
 .research {
     background-image: url("/img/girls.png");
     background-attachment: fixed;
-    min-height: 100vh;
+    min-height: 60vh;
 }
 
 div.mob_info{ 

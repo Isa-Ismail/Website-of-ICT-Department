@@ -9,6 +9,7 @@ import { useContext } from 'react';
 import { Store } from '../utils/store';
 import { useSnackbar } from 'notistack'
 import { useRouter } from 'next/router'
+import { LockClockOutlined, LockOpen, LoginOutlined, LoginTwoTone } from '@mui/icons-material';
 
 const Login = () => {
 
@@ -50,10 +51,10 @@ const Login = () => {
     <Layout>
       <div className='my-[10rem] min-h-screen'>
         <div className="flex justify-center">
-          <div className="bg-gradient-to-t from-cyan-300 via-cyan-200 to-cyan-200 rounded-lg space-y-5 py-5 px-10">
+          <div className="bg-[#FFF8EA] rounded-lg space-y-5 py-2 px-10">
             <div>
               <div className="flex justify-center p-8">
-                <h1 className="text-black">Login</h1>
+                <span className="text-[#FFF8EA] bg-[#594545] p-4 rounded-full"><LockOpen /></span>
               </div>
               <TextField
                 label="Email" variant="outlined"
@@ -80,7 +81,7 @@ const Login = () => {
               />
             </div>
             <div className="flex justify-center py-4">
-              <Button className="bg-blue-400" onClick={handleSubmit} variant="contained">Submit</Button>
+              <Button className="!bg-[#594545]" onClick={handleSubmit} variant="contained">Login</Button>
             </div>
             <Link href="/register" >Dont have an account? Register here</Link>
           </div>

@@ -83,7 +83,7 @@ const Dash = () => {
     return (
     <Layout>
         <div className="flex">
-            <div className="w-[20rem] bg-[rgba(6,73,126,255)] min-h-screen mt-[5rem]">
+            <div className="w-[20rem] bg-[#594545] min-h-screen mt-[5rem]">
                 <div className="p-4 flex space-x-4 items-center">
                     <Avatar />
                     <p>{state.userInfo.username}</p>
