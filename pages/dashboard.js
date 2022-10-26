@@ -26,7 +26,7 @@ const Dash = () => {
 
     const handleSubNotice = async () => {
         if(notice.message&&notice.regards&&notice.title&&notice.batch&&notice.date) {
-            const mes = await postNotice(notice.title, notice.message, notice.regards, notice.batch, notice.date)
+            const mes = await postNotice(notice.title, notice.message, notice.regards, notice.batch, notice.date, notice.userId)
             enqueueSnackbar(mes.message, {variant: 'success'})
             setNotice({title: '',
             message: '',
@@ -41,7 +41,7 @@ const Dash = () => {
 
     const handleSubPub = async () => {
         if(pub.title&&pub.author&&pub.published&&pub.journal&&pub.url) {
-            const mes = await postNotice(pub.title, pub.author, pub.published, pub.journal, pub.url)
+            const mes = await postNotice(pub.title, pub.author, pub.published, pub.journal, pub.url, pub.userId)
             enqueueSnackbar(mes.message, {variant: 'success'})
         }else{
             enqueueSnackbar('please fill required fields', {variant: 'error'})
@@ -72,7 +72,7 @@ const Dash = () => {
         })
     }
 
-    console.log(notice)
+    console.log(notice, pub)
 
     useEffect(()=> {
         if(!state.userInfo){
