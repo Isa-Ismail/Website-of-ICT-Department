@@ -101,7 +101,7 @@ const Dash = () => {
                     <p onClick={()=> {dispatch({type: "CLEAR_USER"}); router.push("/login")} }><Logout/> Log out</p>
                 </div>
             </div>
-            <div className="min-h-screen mt-22 w-screen bg-slate-200 flex justify-evenly mt-[5rem]"> 
+            <div className="min-h-screen mt-22 w-screen bg-[#FFF8EA] flex justify-evenly mt-[5rem]"> 
                 <div className='p-20 space-y-5'>
                 <div>
                     <h1 className="text-black">Update Notices</h1>
@@ -173,7 +173,7 @@ const Dash = () => {
                     />
                     </div>
                   <div className="flex py-4">
-                    <Button className="bg-blue-400" onClick={handleSubNotice} variant="contained">Post</Button>
+                    <Button className="!bg-[#594545]" onClick={handleSubNotice} variant="contained">Post</Button>
                   </div>
                 </div>
                 <div className='p-20 space-y-5'>
@@ -241,7 +241,7 @@ const Dash = () => {
                     />
                     </div>
                   <div className="flex py-4">
-                    <Button className="bg-blue-400" onClick={handleSubPub} variant="contained">Post</Button>
+                    <Button className="!bg-[#594545]" onClick={handleSubPub} variant="contained">Post</Button>
                   </div>
                 </div>
             </div>
