@@ -63,7 +63,7 @@ export const signin = async (email, password) => {
     return data
 }
 
-export const postPub = async (title, author, published, journal, url, userId) => {
+export const postPub = async (title, author, url, journal, published, userId) => {
     const res = await fetch ('https://ict-6.vercel.app/api/publications',{
     
     //Define method

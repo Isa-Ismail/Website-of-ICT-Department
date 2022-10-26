@@ -24,32 +24,8 @@ const Dash = () => {
         })
     }
 
-    const handleSubNotice = async () => {
-        if(notice.message&&notice.regards&&notice.title&&notice.batch&&notice.date) {
-            const mes = await postNotice(notice.title, notice.message, notice.regards, notice.batch, notice.date, notice.userId)
-            enqueueSnackbar(mes.message, {variant: 'success'})
-            setNotice({title: '',
-            message: '',
-            regards: '',
-            date:'',
-            batch: '',
-            userId: state.userInfo._id,})
-        }else{
-            enqueueSnackbar('please fill required fields', {variant: 'error'})
-        }
-    }
-
-    const handleSubPub = async () => {
-        if(pub.title&&pub.author&&pub.published&&pub.journal&&pub.url) {
-            const mes = await postNotice(pub.title, pub.author, pub.published, pub.journal, pub.url, pub.userId)
-            enqueueSnackbar(mes.message, {variant: 'success'})
-        }else{
-            enqueueSnackbar('please fill required fields', {variant: 'error'})
-        }
-    }
-
     const [pub, setPub] = useState({
-        title: '',
+        titleP: '',
         author: '',
         published: '',
         journal: '',
@@ -66,13 +42,45 @@ const Dash = () => {
         userId: state.userInfo._id,
     })
 
+    const handleSubNotice = async () => {
+        if(notice.message&&notice.regards&&notice.title&&notice.batch&&notice.date) {
+            const mes = await postNotice(notice.title, notice.message, notice.regards, notice.batch, notice.date, notice.userId)
+            enqueueSnackbar(mes.message, {variant: 'success'})
+            setNotice({title: '',
+            message: '',
+            regards: '',
+            date:'',
+            batch: '',
+            userId: state.userInfo._id,})
+        }else{
+            enqueueSnackbar('please fill required fields', {variant: 'error'})
+        }
+    }
+
+    const handleSubPub = async () => {
+        if(pub.titleP&&pub.author&&pub.published&&pub.journal&&pub.url) {
+            const mes = await postPub(pub.titleP, pub.author, pub.url, pub.journal, pub.published, pub.userId)
+            enqueueSnackbar(mes.message, {variant: 'success'})
+            setPub({
+                titleP: '',
+                author: '',
+                published: '',
+                journal: '',
+                userId: state.userInfo._id,
+                url: ''
+            })
+        }else{
+            enqueueSnackbar('please fill required fields', {variant: 'error'})
+        }
+    }
+
     const handleChangeNotice = (e) => {
         setNotice({
             ...notice, [e.target.name]: e.target.value
         })
     }
 
-    console.log(notice, pub)
+    console.log(pub)
 
     useEffect(()=> {
         if(!state.userInfo){
@@ -186,8 +194,8 @@ const Dash = () => {
                     label="Title" 
                     placeholder='publication title'
                     variant="outlined"
-                    name='title'
-                    value={pub.title}
+                    name='titleP'
+                    value={pub.titleP}
                     multiline
                     onChange={handleChangePub}
                     />
