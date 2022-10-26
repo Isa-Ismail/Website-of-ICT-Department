@@ -49,7 +49,7 @@ const Register = () => {
 
     e.preventDefault()
 
-    signup(username, email, password, phone, country, city).then( response => {
+    signup(username, email, password, phone, country, city, designation).then( response => {
 
     dispatch({ type: 'REGISTER', payload: response.message})
 
