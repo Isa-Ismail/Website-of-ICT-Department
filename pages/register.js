@@ -28,7 +28,8 @@ const Register = () => {
       password: '',
       city: '',
       country: '',
-      phone: ''
+      phone: '',
+      designation: ''
     }
   )
   
@@ -38,7 +39,8 @@ const Register = () => {
     password,
     phone,
     city,
-    country
+    country,
+    designation
   } = form
 
   const handleChange = (e) => {
