@@ -59,7 +59,8 @@ const Register = () => {
       password: '',
       city: '',
       country: '',
-      phone: ''
+      phone: '',
+      designation: ''
     } )
 
     if(response.message==="User created, please Log in"){
@@ -147,6 +148,17 @@ const Register = () => {
                     multiline
                     maxRows={4}
                     value={form.phone}
+                    onChange={handleChange}
+                    />
+                  </div>
+                  <div>
+                    <TextField
+                    label="Designation" variant="outlined"
+                    className="w-[25rem]"
+                    name='designation'
+                    multiline
+                    maxRows={4}
+                    value={form.designation}
                     onChange={handleChange}
                     />
                   </div>
