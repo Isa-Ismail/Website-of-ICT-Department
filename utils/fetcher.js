@@ -4,7 +4,7 @@ export const sampleReq = async () => {
     return data
 }
 
-export const signup = async (username, email, password, phone, country, city) => {
+export const signup = async (username, email, password, phone, country, city, designation) => {
     
     const res = await fetch ('https://ict-6.vercel.app/api/auth/register',{
     
@@ -18,7 +18,8 @@ export const signup = async (username, email, password, phone, country, city) =>
         password,
         phone, 
         country, 
-        city
+        city,
+        designation
     }),
      
     // Adding headers to the request

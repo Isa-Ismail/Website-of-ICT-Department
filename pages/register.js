@@ -19,7 +19,6 @@ const Register = () => {
   const router = useRouter ()
 
   const {state, dispatch} = useContext(Store)
-  console.log(state)
 
   const [form, setForm] = useState (
     {
@@ -32,6 +31,8 @@ const Register = () => {
       designation: ''
     }
   )
+
+  console.log(form)
   
   const {
     username,
