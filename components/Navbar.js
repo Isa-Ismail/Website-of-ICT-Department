@@ -81,7 +81,7 @@ const Navbar = () => {
 
     return (
         <div>
-            <AppBar className={navBgOnScroll ? '!bg-[#594545] !transition-all !ease-in-out !duration-500' : '!bg-transparent !transition-all !ease-in-out !duration-500'}>
+            <AppBar className={navBgOnScroll ? '!bg-[#112D4E] !transition-all !ease-in-out !duration-500' : '!bg-transparent !transition-all !ease-in-out !duration-500'}>
                 <div className="flex md:px-[10rem] sm:px-4 py-5 items-center">
 
                     <div className="hover:cursor-pointer">

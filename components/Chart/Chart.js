@@ -5,7 +5,7 @@ const Chart = () => {
   return (
     <div className={styles.detailed_chart}>
       <div className="container">
-        <div className="px-[10rem] space-y-[2rem] flex items-center justify-center gap-x-52">
+        <div className="px-[10rem] space-y-[2rem] flex items-center justify-center gap-x-[5rem]">
           <div className="col-xs-12 col-sm-6 col-md-3 chart_bottom bg-[#064663] rounded-full p-16">
             <div className={styles.chart_img}>
               <img
