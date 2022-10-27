@@ -39,7 +39,7 @@ const Login = () => {
         dispatch({ type: 'USER', payload: data })
       })
       enqueueSnackbar(`Welcome to ICT department}`, { variant: 'success' })
-      router.push("/")
+      router.push('/')
     } else {
       dispatch({ type: 'ERROR', payload: response.message })
       enqueueSnackbar('Wrong credentials', { variant: 'error' })

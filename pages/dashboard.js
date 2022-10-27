@@ -13,10 +13,12 @@ const Dash = () => {
 
     const router = useRouter ()
 
+    const [publications, setPublications] = useState([])
+
     const { enqueueSnackbar, closeSnackbar } = useSnackbar()
 
     const {state, dispatch} = useContext(Store)
-    console.log(state.userInfo._id)
+    console.log(state.userInfo)
 
     const handleChangePub = (e) => {
         setPub({
@@ -80,18 +82,21 @@ const Dash = () => {
         })
     }
 
-    console.log(pub)
+    console.log(publications)
 
     useEffect(()=> {
-        if(!state.userInfo){
-            router.push("/login")
+        if(!state.userInfo._id){
+            router.push("/")
+        }else{
+            fetch(`https://ict-6.vercel.app/api/publications/${state.userInfo._id}`).then(res=> res.json()).then(data=>setPublications(data))
+            console.log(publications)
         }
-    }, [state.userInfo])
+    },[state.userInfo._id])
     
     return (
     <Layout>
         <div className="flex">
-            <div className="w-[20rem] bg-[#594545] min-h-screen mt-[5rem]">
+            <div className="w-[20rem] bg-[#112D4E] min-h-screen mt-[5rem]">
                 <div className="p-4 flex space-x-4 items-center">
                     <Avatar />
                     <p>{state.userInfo.username}</p>
@@ -106,11 +111,12 @@ const Dash = () => {
                     <p><Phone /> {state.userInfo.phone}</p>
                 </div>
                 <div className="p-4 flex space-x-4 items-center cursor-pointer">
-                    <p onClick={()=> {dispatch({type: "CLEAR_USER"}); router.push("/login")} }><Logout/> Log out</p>
+                    <p onClick={()=> {dispatch({type: "CLEAR_USER"})}}><Logout/> Log out</p>
                 </div>
             </div>
-            <div className="min-h-screen mt-22 w-screen bg-[#FFF8EA] flex justify-evenly mt-[5rem]"> 
-                <div className='p-20 space-y-5'>
+            <div className="min-h-screen mt-22 w-screen bg-[#D8D9CF] flex justify-evenly mt-[5rem]"> 
+                {state.userInfo.isAdmin&&
+                <><div className='p-20 space-y-5'>
                 <div>
                     <h1 className="text-black">Update Notices</h1>
                 </div>
@@ -180,10 +186,10 @@ const Dash = () => {
                     onChange={handleChangeNotice}
                     />
                     </div>
-                  <div className="flex py-4">
+                <div className="flex py-4">
                     <Button className="!bg-[#594545]" onClick={handleSubNotice} variant="contained">Post</Button>
-                  </div>
                 </div>
+                </div></>}
                 <div className='p-20 space-y-5'>
                 <div>
                     <h1 className="text-black">Update publications</h1>
@@ -248,9 +254,9 @@ const Dash = () => {
                     onChange={handleChangePub}
                     />
                     </div>
-                  <div className="flex py-4">
+                <div className="flex py-4">
                     <Button className="!bg-[#594545]" onClick={handleSubPub} variant="contained">Post</Button>
-                  </div>
+                </div>
                 </div>
             </div>
         </div>
