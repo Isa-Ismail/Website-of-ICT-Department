@@ -8,6 +8,7 @@ import { Store } from '../utils/store'
 import { postPub, postNotice } from '../utils/fetcher'
 import { useSnackbar } from 'notistack'
 import Select from '@mui/material/Select'
+import CustomizedTables from '../components/Table'
 
 const Dash = () => {
 
@@ -91,7 +92,7 @@ const Dash = () => {
             fetch(`https://ict-6.vercel.app/api/publications/${state.userInfo._id}`).then(res=> res.json()).then(data=>setPublications(data))
             console.log(publications)
         }
-    },[state.userInfo._id])
+    },[state.userInfo._id, pub])
     
     return (
     <Layout>
@@ -114,12 +115,13 @@ const Dash = () => {
                     <p onClick={()=> {dispatch({type: "CLEAR_USER"})}}><Logout/> Log out</p>
                 </div>
             </div>
-            <div className="min-h-screen mt-22 w-screen bg-[#D8D9CF] flex justify-evenly mt-[5rem]"> 
+            <div className="min-h-screen mt-22 w-screen bg-[#D8D9CF] flex justify-evenly mt-[5rem]">
                 {state.userInfo.isAdmin&&
-                <><div className='p-20 space-y-5'>
-                <div>
+                <>
+                <div className='p-20 space-y-5'>
+                    <div>
                     <h1 className="text-black">Update Notices</h1>
-                </div>
+                    </div>
                     <div className="">
                     <TextField  
                     className="w-[20rem]"
@@ -191,9 +193,9 @@ const Dash = () => {
                 </div>
                 </div></>}
                 <div className='p-20 space-y-5'>
-                <div>
+                    <div>
                     <h1 className="text-black">Update publications</h1>
-                </div>
+                    </div>
                     <div className="">
                     <TextField  
                     className="w-[20rem]"
@@ -254,9 +256,14 @@ const Dash = () => {
                     onChange={handleChangePub}
                     />
                     </div>
-                <div className="flex py-4">
+                <div className="flex py-2">
                     <Button className="!bg-[#594545]" onClick={handleSubPub} variant="contained">Post</Button>
                 </div>
+                {publications.length>0&&
+                <div className='flex-col items-center'>
+                    <h1 className="text-black">Your publications</h1>
+                    <CustomizedTables datas={publications}/>
+                </div>}
                 </div>
             </div>
         </div>
