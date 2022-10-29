@@ -37,6 +37,7 @@ export default function CustomizedTables({datas}) {
           <TableRow>
             <StyledTableCell>Title</StyledTableCell>
             <StyledTableCell align="right">Journal</StyledTableCell>
+            <StyledTableCell align="right">Research type</StyledTableCell>
             <StyledTableCell align="right">URL</StyledTableCell>
             <StyledTableCell align="right">Published</StyledTableCell>
           </TableRow>
@@ -47,7 +48,8 @@ export default function CustomizedTables({datas}) {
               <StyledTableCell component="th" scope="row">
                 {row.title}
               </StyledTableCell>
-              <StyledTableCell align="right">{row.journal}</StyledTableCell>
+              <StyledTableCell align="right">{row.journal?row.journal:'N/A'}</StyledTableCell>
+              <StyledTableCell align="right">{row.researchType}</StyledTableCell>
               <StyledTableCell align="right"><Link className='underline' href={row.url}>Link</Link></StyledTableCell>
               <StyledTableCell align="right">{row.published}</StyledTableCell>
             </StyledTableRow>

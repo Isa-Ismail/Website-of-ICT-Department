@@ -62,7 +62,7 @@ const Dash = () => {
 
     const handleSubPub = async () => {
         if(pub.titleP&&pub.author&&pub.published&&pub.journal&&pub.url&&pub.researchType) {
-            const mes = await postPub(pub.titleP, pub.author, pub.url, pub.journal, pub.published, pub.userId)
+            const mes = await postPub(pub.titleP, pub.author, pub.url, pub.journal, pub.published, pub.userId, pub.researchType)
             enqueueSnackbar(mes.message, {variant: 'success'})
             setPub({
                 titleP: '',
@@ -84,7 +84,7 @@ const Dash = () => {
         })
     }
 
-    console.log(publications)
+    console.log(pub)
 
     useEffect(()=> {
         if(!state.userInfo._id){
@@ -248,7 +248,7 @@ const Dash = () => {
                     <TextField  
                     className="w-[20rem]"
                     label="researchType" 
-                    placeholder='https://yourwebsitesurl.com'
+                    placeholder='Thesis/Conference paper/Journal'
                     variant="outlined"
                     name='researchType'
                     multiline
