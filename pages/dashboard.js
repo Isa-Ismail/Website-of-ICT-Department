@@ -61,11 +61,12 @@ const Dash = () => {
     }
 
     const handleSubPub = async () => {
-        if(pub.titleP&&pub.author&&pub.published&&pub.journal&&pub.url) {
+        if(pub.titleP&&pub.author&&pub.published&&pub.journal&&pub.url&&pub.researchType) {
             const mes = await postPub(pub.titleP, pub.author, pub.url, pub.journal, pub.published, pub.userId)
             enqueueSnackbar(mes.message, {variant: 'success'})
             setPub({
                 titleP: '',
+                researchType: '',
                 author: '',
                 published: '',
                 journal: '',
@@ -241,6 +242,17 @@ const Dash = () => {
                     name='journal'
                     multiline
                     value={pub.journal}
+                    onChange={handleChangePub}
+                    />
+                    </div><div className="">
+                    <TextField  
+                    className="w-[20rem]"
+                    label="researchType" 
+                    placeholder='https://yourwebsitesurl.com'
+                    variant="outlined"
+                    name='researchType'
+                    multiline
+                    value={pub.researchType}
                     onChange={handleChangePub}
                     />
                     </div>
