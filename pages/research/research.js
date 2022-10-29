@@ -26,7 +26,7 @@ const research = () => {
         alt="avatar" style={{ width: "100%" }} />
       <h5 class="text-lg font-bold mb-4 ">{user.username}</h5>
       <p class="mb-6 text-gray-800 ">{user.designation}</p>
-      <Link href={`/components/researchProfile/${user.id}}`}>See All Articles </Link>
+      <Link href={`/research/researchProfile/1`}>See All Articles </Link>
     </div>
   ))
 
