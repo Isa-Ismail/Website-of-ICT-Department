@@ -9,6 +9,7 @@ import { useContext } from 'react'
 import { Store } from '../utils/store'
 import { useRouter } from 'next/router'
 import { useSnackbar } from 'notistack'
+import { LockOpen } from '@mui/icons-material'
 
 const Register = () => {
 
@@ -19,7 +20,6 @@ const Register = () => {
   const router = useRouter ()
 
   const {state, dispatch} = useContext(Store)
-  console.log(state)
 
   const [form, setForm] = useState (
     {
@@ -28,9 +28,12 @@ const Register = () => {
       password: '',
       city: '',
       country: '',
-      phone: ''
+      phone: '',
+      designation: ''
     }
   )
+
+  console.log(form)
   
   const {
     username,
@@ -38,7 +41,8 @@ const Register = () => {
     password,
     phone,
     city,
-    country
+    country,
+    designation
   } = form
 
   const handleChange = (e) => {
@@ -49,7 +53,7 @@ const Register = () => {
 
     e.preventDefault()
 
-    signup(username, email, password, phone, country, city).then( response => {
+    signup(username, email, password, phone, country, city, designation).then( response => {
 
     dispatch({ type: 'REGISTER', payload: response.message})
 
@@ -59,7 +63,8 @@ const Register = () => {
       password: '',
       city: '',
       country: '',
-      phone: ''
+      phone: '',
+      designation: ''
     } )
 
     if(response.message==="User created, please Log in"){
@@ -75,12 +80,12 @@ const Register = () => {
   return (
     <Layout>
         <div className='my-[10rem] min-h-screen'>
-            <div className="flex justify-center">
-              <div className="bg-gradient-to-t from-cyan-300 via-cyan-200 to-cyan-200 rounded-lg space-y-5 py-2 px-10">
-                  <div>
-                    <div className="flex justify-center p-8">
-                    <h1 className="text-black">Register</h1>
-                    </div>
+          <div className="flex justify-center">
+            <div className="bg-[#FFF8EA] rounded-lg space-y-5 py-2 px-10">
+              <div>
+                <div className="flex justify-center p-8">
+                  <span className="text-[#FFF8EA] bg-[#594545] p-4 rounded-full"><LockOpen /></span>
+                </div>
                     <TextField
                     label="Username" variant="outlined"
                     className="w-[25rem]"
@@ -150,8 +155,19 @@ const Register = () => {
                     onChange={handleChange}
                     />
                   </div>
+                  <div>
+                    <TextField
+                    label="Designation" variant="outlined"
+                    className="w-[25rem]"
+                    name='designation'
+                    multiline
+                    maxRows={4}
+                    value={form.designation}
+                    onChange={handleChange}
+                    />
+                  </div>
                   <div className="flex justify-center py-10">
-                    <Button type='submit' onClick={handleSubmit} className="bg-blue-400" variant="contained">Submit</Button>
+                    <Button type='submit' onClick={handleSubmit} className="bg-[#594545]" variant="contained">Register</Button>
                   </div>
                   <Link href="/login" >Already registerd? Login here</Link>
               </div>

@@ -4,7 +4,7 @@ export const sampleReq = async () => {
     return data
 }
 
-export const signup = async (username, email, password, phone, country, city) => {
+export const signup = async (username, email, password, phone, country, city, designation) => {
     
     const res = await fetch ('https://ict-6.vercel.app/api/auth/register',{
     
@@ -18,7 +18,8 @@ export const signup = async (username, email, password, phone, country, city) =>
         password,
         phone, 
         country, 
-        city
+        city,
+        designation
     }),
      
     // Adding headers to the request
@@ -62,7 +63,7 @@ export const signin = async (email, password) => {
     return data
 }
 
-export const postPub = async (title, author, published, journal, url) => {
+export const postPub = async (title, author, url, journal, published, userId) => {
     const res = await fetch ('https://ict-6.vercel.app/api/publications',{
     
     //Define method
@@ -70,7 +71,7 @@ export const postPub = async (title, author, published, journal, url) => {
      
     // Adding body or contents to send
     body: JSON.stringify({
-        title, author, published, journal, url
+        title, author, published, journal, url, userId
     }),
      
     // Adding headers to the request
@@ -87,7 +88,7 @@ export const postPub = async (title, author, published, journal, url) => {
     return data
 }
 
-export const postNotice = async (title, message, regards, batch, date) => {
+export const postNotice = async (title, message, regards, batch, date, userId) => {
     const res = await fetch ('https://ict-6.vercel.app/api/notice',{
     
     //Define method
@@ -95,7 +96,7 @@ export const postNotice = async (title, message, regards, batch, date) => {
      
     // Adding body or contents to send
     body: JSON.stringify({
-        title, message, regards, batch, date
+        title, message, regards, batch, date, userId
     }),
      
     // Adding headers to the request

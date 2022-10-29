@@ -5,7 +5,7 @@ import faizur from "../../public//img/faizur.png"
 import { Button } from "@mui/material"
 const Contact = () => {
   return (
-    <div className="md:flex md:justify-evenly bg-white p-10 items-center">
+    <div className="md:flex md:justify-evenly bg-[#FFF8EA] p-10 items-center">
       <div className="space-x-4 space-y-4 flex flex-wrap">
         <div className="md:w-[600px] space-y-4">
           <h1 className="text-[#0B3954] text-[3rem]">Our achievements</h1>

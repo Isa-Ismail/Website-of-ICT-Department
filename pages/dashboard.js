@@ -8,15 +8,18 @@ import { Store } from '../utils/store'
 import { postPub, postNotice } from '../utils/fetcher'
 import { useSnackbar } from 'notistack'
 import Select from '@mui/material/Select'
+import CustomizedTables from '../components/Table'
 
 const Dash = () => {
 
     const router = useRouter ()
 
+    const [publications, setPublications] = useState([])
+
     const { enqueueSnackbar, closeSnackbar } = useSnackbar()
 
     const {state, dispatch} = useContext(Store)
-    console.log(state.userInfo._id)
+    console.log(state.userInfo)
 
     const handleChangePub = (e) => {
         setPub({
@@ -24,32 +27,8 @@ const Dash = () => {
         })
     }
 
-    const handleSubNotice = async () => {
-        if(notice.message&&notice.regards&&notice.title&&notice.batch&&notice.date) {
-            const mes = await postNotice(notice.title, notice.message, notice.regards, notice.batch, notice.date)
-            enqueueSnackbar(mes.message, {variant: 'success'})
-            setNotice({title: '',
-            message: '',
-            regards: '',
-            date:'',
-            batch: '',
-            userId: state.userInfo._id,})
-        }else{
-            enqueueSnackbar('please fill required fields', {variant: 'error'})
-        }
-    }
-
-    const handleSubPub = async () => {
-        if(pub.title&&pub.author&&pub.published&&pub.journal&&pub.url) {
-            const mes = await postNotice(pub.title, pub.author, pub.published, pub.journal, pub.url)
-            enqueueSnackbar(mes.message, {variant: 'success'})
-        }else{
-            enqueueSnackbar('please fill required fields', {variant: 'error'})
-        }
-    }
-
     const [pub, setPub] = useState({
-        title: '',
+        titleP: '',
         author: '',
         published: '',
         journal: '',
@@ -66,24 +45,59 @@ const Dash = () => {
         userId: state.userInfo._id,
     })
 
+    const handleSubNotice = async () => {
+        if(notice.message&&notice.regards&&notice.title&&notice.batch&&notice.date) {
+            const mes = await postNotice(notice.title, notice.message, notice.regards, notice.batch, notice.date, notice.userId)
+            enqueueSnackbar(mes.message, {variant: 'success'})
+            setNotice({title: '',
+            message: '',
+            regards: '',
+            date:'',
+            batch: '',
+            userId: state.userInfo._id,})
+        }else{
+            enqueueSnackbar('please fill required fields', {variant: 'error'})
+        }
+    }
+
+    const handleSubPub = async () => {
+        if(pub.titleP&&pub.author&&pub.published&&pub.journal&&pub.url) {
+            const mes = await postPub(pub.titleP, pub.author, pub.url, pub.journal, pub.published, pub.userId)
+            enqueueSnackbar(mes.message, {variant: 'success'})
+            setPub({
+                titleP: '',
+                author: '',
+                published: '',
+                journal: '',
+                userId: state.userInfo._id,
+                url: ''
+            })
+        }else{
+            enqueueSnackbar('please fill required fields', {variant: 'error'})
+        }
+    }
+
     const handleChangeNotice = (e) => {
         setNotice({
             ...notice, [e.target.name]: e.target.value
         })
     }
 
-    console.log(notice)
+    console.log(publications)
 
     useEffect(()=> {
-        if(!state.userInfo){
-            router.push("/login")
+        if(!state.userInfo._id){
+            router.push("/")
+        }else{
+            fetch(`https://ict-6.vercel.app/api/publications/${state.userInfo._id}`).then(res=> res.json()).then(data=>setPublications(data))
+            console.log(publications)
         }
-    }, [state.userInfo])
+    },[state.userInfo._id, pub])
     
     return (
     <Layout>
         <div className="flex">
-            <div className="w-[20rem] bg-[darkslategray] min-h-screen mt-[5rem]">
+            <div className="w-[20rem] bg-[#112D4E] min-h-screen mt-[5rem]">
                 <div className="p-4 flex space-x-4 items-center">
                     <Avatar />
                     <p>{state.userInfo.username}</p>
@@ -98,14 +112,16 @@ const Dash = () => {
                     <p><Phone /> {state.userInfo.phone}</p>
                 </div>
                 <div className="p-4 flex space-x-4 items-center cursor-pointer">
-                    <p onClick={()=> {dispatch({type: "CLEAR_USER"}); router.push("/login")} }><Logout/> Log out</p>
+                    <p onClick={()=> {dispatch({type: "CLEAR_USER"})}}><Logout/> Log out</p>
                 </div>
             </div>
-            <div className="min-h-screen mt-22 w-screen bg-slate-200 flex justify-evenly mt-[5rem]"> 
+            <div className="min-h-screen mt-22 w-screen bg-[#D8D9CF] flex justify-evenly mt-[5rem]">
+                {state.userInfo.isAdmin&&
+                <>
                 <div className='p-20 space-y-5'>
-                <div>
+                    <div>
                     <h1 className="text-black">Update Notices</h1>
-                </div>
+                    </div>
                     <div className="">
                     <TextField  
                     className="w-[20rem]"
@@ -172,22 +188,22 @@ const Dash = () => {
                     onChange={handleChangeNotice}
                     />
                     </div>
-                  <div className="flex py-4">
-                    <Button className="bg-blue-400" onClick={handleSubNotice} variant="contained">Post</Button>
-                  </div>
+                <div className="flex py-4">
+                    <Button className="!bg-[#594545]" onClick={handleSubNotice} variant="contained">Post</Button>
                 </div>
+                </div></>}
                 <div className='p-20 space-y-5'>
-                <div>
+                    <div>
                     <h1 className="text-black">Update publications</h1>
-                </div>
+                    </div>
                     <div className="">
                     <TextField  
                     className="w-[20rem]"
                     label="Title" 
                     placeholder='publication title'
                     variant="outlined"
-                    name='title'
-                    value={pub.title}
+                    name='titleP'
+                    value={pub.titleP}
                     multiline
                     onChange={handleChangePub}
                     />
@@ -240,9 +256,14 @@ const Dash = () => {
                     onChange={handleChangePub}
                     />
                     </div>
-                  <div className="flex py-4">
-                    <Button className="bg-blue-400" onClick={handleSubPub} variant="contained">Post</Button>
-                  </div>
+                <div className="flex py-2">
+                    <Button className="!bg-[#594545]" onClick={handleSubPub} variant="contained">Post</Button>
+                </div>
+                {publications.length>0&&
+                <div className='flex-col items-center'>
+                    <h1 className="text-black">Your publications</h1>
+                    <CustomizedTables datas={publications}/>
+                </div>}
                 </div>
             </div>
         </div>

@@ -9,6 +9,7 @@ import { useContext } from 'react';
 import { Store } from '../utils/store';
 import { useSnackbar } from 'notistack'
 import { useRouter } from 'next/router'
+import { LockClockOutlined, LockOpen, LoginOutlined, LoginTwoTone } from '@mui/icons-material';
 
 const Login = () => {
 
@@ -34,8 +35,8 @@ const Login = () => {
       fetch(`https://ict-6.vercel.app/api/auth/${response.id}`).then(res => res.json()).then(data => {
         dispatch({ type: 'USER', payload: data })
       })
-      enqueueSnackbar(`Welcome to ICT department ${state.userInfo && state.userInfo.username}`, { variant: 'success' })
-      router.push("/")
+      enqueueSnackbar(`Welcome to ICT department}`, { variant: 'success' })
+      router.push('/')
     } else {
       dispatch({ type: 'ERROR', payload: response.message })
       enqueueSnackbar('Wrong credentials', { variant: 'error' })
