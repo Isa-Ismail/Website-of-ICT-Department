@@ -116,7 +116,7 @@ const Dash = () => {
                     <p onClick={()=> {dispatch({type: "CLEAR_USER"})}}><Logout/> Log out</p>
                 </div>
             </div>
-            <div className="min-h-screen mt-22 w-screen bg-[#D8D9CF] flex justify-evenly mt-[5rem]">
+            <div className="min-h-screen mt-22 w-screen bg-[#EEEEEE] flex justify-evenly mt-[5rem]">
                 {state.userInfo.isAdmin&&
                 <>
                 <div className='p-20 space-y-5'>
