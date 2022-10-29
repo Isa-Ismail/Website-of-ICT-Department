@@ -1,16 +1,18 @@
-import { useState, useEffect } from 'react'
+import Link from 'next/link'
+import { useEffect, useState } from 'react'
 import Layout from '../../components/Layout'
-import Link from 'next/link';
+import styles from '../../styles/Notice.module.css'
 const research = () => {
-
-  const [users, setUsers] = useState([])
+  const [publications, setPublications] = useState([])
+  const [year, setYear] = useState(2022)
+  const [type, setType] = useState('publications')
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('https://ict-6.vercel.app/api/auth/')
+        const response = await fetch('https://ict-6.vercel.app/api/publications/')
         const data = await response.json();
-        setUsers(data);
+        setPublications(data);
       } catch (error) {
         console.log(error)
       }
@@ -19,14 +21,24 @@ const research = () => {
   }, [])
 
   let content = [];
+  let months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  let created_date = '';
+  let publicationYear = ''
+  let month = ''
+  let date = ''
 
-  content = users.filter(user => !user.isFaculty).map(user => (
-    <div class="mb-12 lg:mb-0 bg-white p-4 rounded-lg ">
-      <img class="rounded-lg shadow-lg mb-6 mx-auto " src="https://mdbootstrap.com/img/Photos/Avatars/img%20(9).jpg"
-        alt="avatar" style={{ width: "100%" }} />
-      <h5 class="text-lg font-bold mb-4 ">{user.username}</h5>
-      <p class="mb-6 text-gray-800 ">{user.designation}</p>
-      <Link href={`/research/researchProfile/1`}>See All Articles </Link>
+  content = publications.filter(user => !user.isFaculty).map(publication => (
+    <div>
+      <div className="p-6 border-solid border-2 border-white">
+        <h3 className='text-xl '>research title</h3>
+        <p className='text-md mt-2'>
+          Published Date :
+        </p>
+        <button className=" inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-teal-700 rounded hover:bg-teal-800 focus:ring-4 focus:outline-none focus:ring-teal-300 dark:bg-teal-600 dark:hover:bg-teal-700 dark:focus:ring-teal-800 mt-3">
+          <Link href={`#`}>Read Full Article </Link>
+        </button>
+        <hr className={'mt-2'} />
+      </div>
     </div>
   ))
 
@@ -35,19 +47,33 @@ const research = () => {
 
   return (
     <Layout>
-      <div class="container my-24 px-6 mx-auto">
-        <section class="mb-32 text-gray-800 text-center">
-          <h2 class="text-3xl font-bold mb-12">Faculty</h2>
-          <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-xl-12">
-            {content}
+
+      <div className='w-[1210px] mt-6 mx-auto'>
+        <div>
+          <h1 className='text-white text-center mb-6'>Notices</h1>
+        </div>
+        <div className="flex-col ">
+          <div className='flex justify-between'>
+            <div className='flex text-white flex-wrap'>
+              <p className='text-white bg-teal-800 hover:bg-teal-900 focus:ring-4 focus:outline-none focus:ring-teal-400 dark:bg-teal-700 dark:hover:bg-teal-700 dark:focus:ring-teal-800 py-4 px-8 border-solid border-2 cursor-pointer' onClick={() => setYear(2022)}>2022</p>
+              <p className='text-white bg-teal-800 hover:bg-teal-900 focus:ring-4 focus:outline-none focus:ring-teal-400 dark:bg-teal-700 dark:hover:bg-teal-700 dark:focus:ring-teal-800 py-4 px-8 border-solid border-2 cursor-pointer' onClick={() => setYear(2021)}>2021</p>
+              <p className='text-white bg-teal-800 hover:bg-teal-900 focus:ring-4 focus:outline-none focus:ring-teal-400 dark:bg-teal-700 dark:hover:bg-teal-700 dark:focus:ring-teal-800 py-4 px-8 border-solid border-2 cursor-pointer' onClick={() => setYear(2020)}>2020</p>
+              <p className='text-white bg-teal-800 hover:bg-teal-900 focus:ring-4 focus:outline-none focus:ring-teal-400 dark:bg-teal-700 dark:hover:bg-teal-700 dark:focus:ring-teal-800 py-4 px-8 border-solid border-2 cursor-pointer' onClick={() => setYear(2019)}>2019</p>
+              <p className='text-white bg-teal-800 hover:bg-teal-900 focus:ring-4 focus:outline-none focus:ring-teal-400 dark:bg-teal-700 dark:hover:bg-teal-700 dark:focus:ring-teal-800 py-4 px-8 border-solid border-2 cursor-pointer' onClick={() => setYear(2018)}>2018</p>
+              <p className='text-white bg-teal-800 hover:bg-teal-900 focus:ring-4 focus:outline-none focus:ring-teal-400 dark:bg-teal-700 dark:hover:bg-teal-700 dark:focus:ring-teal-800 py-4 px-8 border-solid border-2 cursor-pointer' onClick={() => setYear(2017)}>2017</p>
+            </div>
+            <div className='flex text-white'>
+              <p className='text-white bg-teal-800 hover:bg-teal-900 focus:ring-4 focus:outline-none focus:ring-teal-400 dark:bg-teal-700 dark:hover:bg-teal-700 dark:focus:ring-teal-800 py-4 px-8 border-solid border-2 cursor-pointer' onClick={() => setType('')}>publications</p>
+              <p className='text-white bg-teal-800 hover:bg-teal-900 focus:ring-4 focus:outline-none focus:ring-teal-400 dark:bg-teal-700 dark:hover:bg-teal-700 dark:focus:ring-teal-800 py-4 px-8 border-solid border-2 cursor-pointer' onClick={() => setType('first')}>journals</p>
+            </div>
           </div>
 
+          {content}
 
-        </section>
-
+        </div>
       </div>
 
-    </Layout>
+    </Layout >
   )
 }
 
