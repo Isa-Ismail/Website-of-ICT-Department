@@ -2,7 +2,7 @@ import { style } from '@mui/system';
 import Styles from './../styles/Button.module.css'
 
 export default () => {
-  const images = ['img/ict.png']
+  const images = ['img/ict.png', 'img/tech.png', 'img/sir.png']
   const btn = "border-2 py-[0.8rem] px-[1.6rem] hover:bg-white hover:text-gray-700"
 
   return (
@@ -54,7 +54,7 @@ export default () => {
         </div>
         <div className="carousel-item relative float-left w-full">
           <img
-            src="https://mdbootstrap.com/img/Photos/Slides/img%20(22).jpg"
+            src={images[2]}
             className="block w-full h-[35rem] object-cover"
             alt="..."
           />
@@ -76,7 +76,7 @@ export default () => {
         </div>
         <div className="carousel-item relative float-left w-full">
           <img
-            src="https://mdbootstrap.com/img/Photos/Slides/img%20(23).jpg"
+            src={images[1]}
             className="block w-full h-[35rem] object-cover"
             alt="..."
           />
