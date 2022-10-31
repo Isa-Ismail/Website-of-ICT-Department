@@ -23,8 +23,7 @@ const notice = () => {
 
 
 
-  //content = notices.filter(notice => notice.batch === 'first')
-  // console.log(content)
+
   let content = [];
   let months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
   let created_date = '';
