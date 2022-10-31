@@ -74,8 +74,8 @@ const research = () => {
               <p className='text-white bg-teal-700 hover:bg-teal-900 focus:ring-4 focus:outline-none focus:ring-teal-400 py-4 px-8 border-solid border-2 cursor-pointer' onClick={() => setPublicationYear(2017)}>2017</p>
             </div>
             <div className='flex text-white'>
-              <p className='text-white bg-teal-700 hover:bg-teal-900 focus:ring-4 focus:outline-none focus:ring-teal-400 py-4 px-8 border-solid border-2 cursor-pointer' onClick={() => setType('publication')}>publications</p>
-              <p className='text-white bg-teal-700 hover:bg-teal-900 focus:ring-4 focus:outline-none focus:ring-teal-400 py-4 px-8 border-solid border-2 cursor-pointer' onClick={() => setType('journal')}>journals</p>
+              <p className='text-white bg-teal-700 hover:bg-teal-900 focus:ring-4 focus:outline-none focus:ring-teal-400 py-4 px-8 border-solid border-2 cursor-pointer' onClick={() => setPublicationType('publication')}>publications</p>
+              <p className='text-white bg-teal-700 hover:bg-teal-900 focus:ring-4 focus:outline-none focus:ring-teal-400 py-4 px-8 border-solid border-2 cursor-pointer' onClick={() => setPublicationType('journal')}>journals</p>
             </div>
           </div>
           {content.length ? content : (

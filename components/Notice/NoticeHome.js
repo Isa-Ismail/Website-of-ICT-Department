@@ -29,65 +29,65 @@ const NoticeHome = () => {
     fetchData();
   }, [])
 
-  // let noticeItems = [{
+  let noticeItems = [{
 
-  //   id: 1,
-  //   title: 'notice1',
-  //   userId: 'farhad1234',
-  //   regards: 'Professor',
-  //   department: 'ICT',
-  //   batch: 'first',
-  //   message: "lorem Ipsam dolor "
-  // },
-  // {
-  //   id: 2,
-  //   title: 'notice2',
-  //   userId: 'farhad1234',
-  //   regards: 'Professor',
-  //   department: 'ICT',
-  //   batch: 'MS',
-  //   message: "lorem Ipsam dolor "
-  // },
-  // {
-  //   id: 3,
-  //   title: 'notice3',
-  //   userId: 'farhad1234',
-  //   regards: 'Professor',
-  //   department: 'ICT',
-  //   batch: 'third',
-  //   message: "lorem Ipsam dolor "
-  // },
-  // {
-  //   id: 4,
-  //   title: 'notce4',
-  //   userId: 'farhad1234',
-  //   regards: 'Professor',
-  //   department: 'ICT',
-  //   batch: 'second',
-  //   message: "lorem Ipsam dolor "
-  // }
-  //   ,
-  // {
-  //   id: 5,
-  //   title: 'notce5',
-  //   userId: 'farhad1234',
-  //   regards: 'Professor',
-  //   department: 'ICT',
-  //   batch: 'MS',
-  //   message: "lorem Ipsam dolor "
-  // }]
+    id: 1,
+    title: 'notice1',
+    userId: 'farhad1234',
+    regards: 'Professor',
+    department: 'ICT',
+    batch: 'first',
+    message: "lorem Ipsam dolor "
+  },
+  {
+    id: 2,
+    title: 'notice2',
+    userId: 'farhad1234',
+    regards: 'Professor',
+    department: 'ICT',
+    batch: 'MS',
+    message: "lorem Ipsam dolor "
+  },
+  {
+    id: 3,
+    title: 'notice3',
+    userId: 'farhad1234',
+    regards: 'Professor',
+    department: 'ICT',
+    batch: 'third',
+    message: "lorem Ipsam dolor "
+  },
+  {
+    id: 4,
+    title: 'notce4',
+    userId: 'farhad1234',
+    regards: 'Professor',
+    department: 'ICT',
+    batch: 'second',
+    message: "lorem Ipsam dolor "
+  }
+    ,
+  {
+    id: 5,
+    title: 'notce5',
+    userId: 'farhad1234',
+    regards: 'Professor',
+    department: 'ICT',
+    batch: 'MS',
+    message: "lorem Ipsam dolor "
+  }]
 
 
-  let totalNoiceBoard = Math.ceil(notices.length / 3);
+  let totalNoiceBoard = Math.ceil(noticeItems.length / 3);
   let content = [];
 
   for (let i = 0; i < totalNoiceBoard; i++) {
     let singleNotices = [];
-    for (let j = i * 3; j < (i + 1) * 3 && j < notices.length; j++) {
+    for (let j = i * 3; j < (i + 1) * 3 && j < noticeItems.length; j++) {
       singleNotices.push(
         <>
           {/* single notice starts */}
-          <div key={notic[j].id}>
+          <div key={noticeItems[j].id}>
             <div className={styles.event_date}>
               <div className={styles.event_date_wrap}>
                 <p>06</p>
@@ -95,7 +95,7 @@ const NoticeHome = () => {
               </div>
             </div>
             <div className={styles.date_description}>
-              <h3 className="text-[#0B3954] text-[1.5rem]">{notic[j].title}</h3>
+              <h3 className="text-[#0B3954] text-[1.5rem]">{noticeItems[j].title}</h3>
               <p className="text-[#0B3954]">
                 When an unknown printer took a galley of type and
                 scrambled it to make a type specimen book ...
@@ -103,7 +103,7 @@ const NoticeHome = () => {
               <hr className={styles.event_line} />
             </div>
           </div>
-          {/* single notice ends */}
+          {/* single noticeItemse ends */}
         </>);
     }
 
