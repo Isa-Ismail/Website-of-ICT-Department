@@ -63,11 +63,12 @@ const Dash = () => {
     }
 
     const handleSubPub = async () => {
-        if (pub.titleP && pub.author && pub.published && pub.journal && pub.url) {
-            const mes = await postPub(pub.titleP, pub.author, pub.url, pub.journal, pub.published, pub.userId)
+        if (pub.titleP && pub.author && pub.published && pub.journal && pub.url && pub.researchType) {
+            const mes = await postPub(pub.titleP, pub.author, pub.url, pub.journal, pub.published, pub.userId, pub.researchType)
             enqueueSnackbar(mes.message, { variant: 'success' })
             setPub({
                 titleP: '',
+                researchType: '',
                 author: '',
                 published: '',
                 journal: '',
@@ -117,7 +118,7 @@ const Dash = () => {
                         <p onClick={() => { dispatch({ type: "CLEAR_USER" }) }}><Logout /> Log out</p>
                     </div>
                 </div>
-                <div className="min-h-screen mt-22 w-screen bg-[#D8D9CF] flex justify-evenly mt-[5rem]">
+                <div className="min-h-screen mt-22 w-screen bg-[#EEEEEE] flex justify-evenly mt-[5rem]">
                     {state.userInfo.isAdmin &&
                         <>
                             <div className='p-20 space-y-5'>
@@ -243,6 +244,17 @@ const Dash = () => {
                                 name='journal'
                                 multiline
                                 value={pub.journal}
+                                onChange={handleChangePub}
+                            />
+                        </div><div className="">
+                            <TextField
+                                className="w-[20rem]"
+                                label="researchType"
+                                placeholder='Thesis/Conference paper/Journal'
+                                variant="outlined"
+                                name='researchType'
+                                multiline
+                                value={pub.researchType}
                                 onChange={handleChangePub}
                             />
                         </div>
