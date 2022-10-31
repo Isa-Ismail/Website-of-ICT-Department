@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { AppBar } from '@mui/material'
+import { AppBar, Avatar } from '@mui/material'
 import MenuIcon from '@mui/icons-material/Menu'
 import Button from '@mui/material/Button'
 import Menu from '@mui/material/Menu'
@@ -8,38 +8,89 @@ import Image from 'next/image'
 import Logo from '../public/img/bup.png'
 import Link from 'next/link'
 import LoginRoundedIcon from '@mui/icons-material/LoginRounded'
+import { styled } from '@mui/material/styles'
+import Tooltip, { TooltipProps, tooltipClasses } from '@mui/material/Tooltip'
+import { useContext } from 'react'
+import { Logout, LogoutRounded } from '@mui/icons-material'
+import { Store } from '../utils/store'
 
 const Navbar = () => {
-    const [navBgOnScroll, setNavBgOnScroll] = useState(false)
-    const [anchorEl, setAnchorEl] = React.useState(null)
-    const open = Boolean(anchorEl)
-    const handlenavBgOnScroll = () => {
-        if (window.scrollY >= 300) {
-          setNavBgOnScroll(true);
-        } else {
-          setNavBgOnScroll(false);
-        }
-      }
 
-    useEffect(()=> {
+    useEffect(() => {
         window.addEventListener("scroll", handlenavBgOnScroll);
         return () => window.removeEventListener("scroll", handlenavBgOnScroll)
     },)
 
-    const handleClick = (event) => {
-      setAnchorEl(event.currentTarget)
-    };
-    const handleClose = () => {
-      setAnchorEl(null)
+    const { state, dispatch } = useContext(Store)
+
+    const [navBgOnScroll, setNavBgOnScroll] = useState(false)
+    const [anchorEl, setAnchorEl] = React.useState(null)
+    const open = Boolean(anchorEl)
+    const handlenavBgOnScroll = () => {
+        if (window.scrollY >= 50) {
+            setNavBgOnScroll(true);
+        } else {
+            setNavBgOnScroll(false);
+        }
     }
 
+    const handleClick = (event) => {
+        setAnchorEl(event.currentTarget)
+    };
+    const handleClose = () => {
+        setAnchorEl(null)
+    }
+
+    const LightTooltip = styled(({ className, ...props }) => (
+        <Tooltip {...props} classes={{ popper: className }} />
+    ))(({ theme }) => ({
+        [`& .${tooltipClasses.tooltip}`]: {
+            backgroundColor: theme.palette.common.white,
+            color: 'rgba(0, 0, 0, 0.87)',
+            boxShadow: theme.shadows[1],
+            fontSize: 11,
+        },
+    }))
+
+    const about = (
+        <div>
+            <div className='space-y-5 p-5'>
+                <p className='text-black'><Link href="/about">Our history</Link></p>
+                <p className='text-black'><Link href="/about">Gallery</Link></p>
+            </div>
+        </div>
+    )
+
+    const people = (
+        <div>
+            <div className='space-y-5 p-5'>
+                <p className='text-black'><Link href="/admin">Admin people</Link></p>
+                <p className='text-black'><Link href="/people">Faculty members</Link></p>
+            </div>
+        </div>
+    )
+
+    const login = (
+        <div>
+            <div className='space-y-5 p-5'>
+                <Link href="/dashboard"><p className='text-black flex items-center space-x-2 hover:cursor-pointer'><Avatar /> <span>Profile</span></p></Link>
+                <Link href="/" ><p onClick={() => dispatch({ type: "CLEAR_USER" })} className='text-black flex items-center space-x-2 hover:cursor-pointer'><LogoutRounded />Log out</p></Link>
+            </div>
+        </div>
+    )
+
     return (
-            <div>
-            <AppBar className={navBgOnScroll?'!bg-teal-700 !transition-all !ease-in-out !duration-500':'!bg-transparent !transition-all !ease-in-out !duration-500'}>
+        <div>
+            <AppBar className={navBgOnScroll ? '!bg-[#112D4E] !transition-all !ease-in-out !duration-500' : '!bg-transparent !transition-all !ease-in-out !duration-500'}>
                 <div className="flex md:px-[10rem] sm:px-4 py-5 items-center">
 
                     <div className="hover:cursor-pointer">
-                        <Link href="/"><Image src={Logo} height={50} width={50} /></Link>
+                        <Link href="/">
+                            <div className='flex items-center space-x-4'>
+                                <Image src={Logo} height={40} width={40} />
+                                <span className="self-center text-xl font-medium whitespace-nowrap dark:text-white">BUP | ICT</span>
+                            </div>
+                        </Link>
                     </div>
 
                     <div className='flex-grow'></div>
@@ -47,30 +98,42 @@ const Navbar = () => {
                     <div className="md:flex space-x-10 sm:hidden">
 
                         <div>
-                            <Link href="/"><p className="hover:underline hover:cursor-pointer">Home</p></Link>
+                            <Link href="/"><p className="hover:cursor-pointer">Home</p></Link>
                         </div>
                         <div>
-                            <Link href="/"><p className="hover:underline hover:cursor-pointer">Papers</p></Link>
+                            <Link href="/research/research"><p className="hover:cursor-pointer">Research</p></Link>
                         </div>
                         <div>
-                            <Link href="/"><p className="hover:underline hover:cursor-pointer">News</p></Link>
+                            <Link href="/notice"><p className="hover:cursor-pointer">News</p></Link>
                         </div>
                         <div>
-                            <Link href="/"><p className="hover:underline hover:cursor-pointer">Notice</p></Link>
+                            <Link href="/notice"><p className="hover:cursor-pointer">Notice</p></Link>
                         </div>
                         <div>
-                            <Link href="/"><p className="hover:underline hover:cursor-pointer">About</p></Link>
+                            <LightTooltip title={about}>
+                                <p className="hover:cursor-pointer">About</p>
+                            </LightTooltip>
+                        </div>
+                        <div>
+                            <LightTooltip title={people}>
+                                <p className="hover:cursor-pointer">People</p>
+                            </LightTooltip>
                         </div>
 
                     </div>
-                    
+
                     <div className='flex-grow'></div>
 
-                    <div className="md:flex sm:hidden">
+                    {state.userInfo.username ? (<div>
+                        <LightTooltip title={login}>
+                            <p className="hover:cursor-pointer flex items-center space-x-5"><Avatar /> <span>{state.userInfo.username}</span></p>
+                        </LightTooltip>
+                    </div>) : (<div className="md:flex sm:hidden">
                         <div className="flex space-x-10">
-                            <Link href="/login"><p className="px-3 py-1 font-bold rounded-md cursor-pointer"><LoginRoundedIcon /> Login </p></Link>
+                            <Link href="/login"><p className="px-3 py-1 rounded-md cursor-pointer"><LoginRoundedIcon /> Login </p></Link>
                         </div>
-                    </div>
+                    </div>)}
+
                     <div className="md:hidden">
                         <div>
                             <Button
@@ -80,7 +143,7 @@ const Navbar = () => {
                                 aria-expanded={open ? 'true' : undefined}
                                 onClick={handleClick}
                             >
-                                <MenuIcon className="text-green-700" />
+                                <MenuIcon className="text-white" />
                             </Button>
                             <Menu
                                 id="basic-menu"
@@ -88,7 +151,7 @@ const Navbar = () => {
                                 open={open}
                                 onClose={handleClose}
                                 MenuListProps={{
-                                'aria-labelledby': 'basic-button',
+                                    'aria-labelledby': 'basic-button',
                                 }}
                             >
                                 <MenuItem onClick={handleClose}>Home</MenuItem>
@@ -103,8 +166,8 @@ const Navbar = () => {
 
                 </div>
             </AppBar>
-            </div>           
-  )
+        </div>
+    )
 }
 
 export default Navbar
