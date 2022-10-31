@@ -38,7 +38,7 @@ const notice = () => {
     month = months[created_date.getMonth()];
     date = created_date.getDate();
     return (
-      <div>
+      <div className="p-6 border-solid border-2 border-white">
         <div className={styles.event_date}>
           <div className={styles.event_date_wrap}>
             <p>{date}</p>
@@ -76,9 +76,12 @@ const notice = () => {
             <p className='text-white bg-teal-800 hover:bg-teal-900 focus:ring-4 focus:outline-none focus:ring-teal-400 dark:bg-teal-700 dark:hover:bg-teal-700 dark:focus:ring-teal-800 py-4 px-8 border-solid border-2 cursor-pointer' onClick={() => setBatch('fourth')}>4th</p>
             <p className='text-white bg-teal-800 hover:bg-teal-900 focus:ring-4 focus:outline-none focus:ring-teal-400 dark:bg-teal-700 dark:hover:bg-teal-700 dark:focus:ring-teal-800 py-4 px-8 border-solid border-2 cursor-pointer' onClick={() => setBatch('ms')}>MS</p>
           </div>
-          <div className="p-6 border-solid border-2 border-white">
-            {content}
-          </div>
+
+          {content.length ? content : (
+            <div className="p-6 border-solid border-2 border-white text-white">
+              <div>No Notice Here</div>
+            </div>
+          )}
         </div>
 
         {/* <div className='text-center mt-6'>

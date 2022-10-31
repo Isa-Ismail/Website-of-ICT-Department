@@ -7,7 +7,7 @@ const Layout = ({ children, title, description }) => {
         <div>
 
             <Head>
-                <title>{title ? `${title}` : `custom title`}</title>
+                <title>{title ? `${title}` : `ICT |BUP`}</title>
                 {description && <meta name="description" content={description}></meta>}
                 <link rel="icon" href="/img/bup.png" />
             </Head>

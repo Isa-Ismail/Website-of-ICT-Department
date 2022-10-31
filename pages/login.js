@@ -115,9 +115,9 @@ const Login = () => {
                   </div>
                   <a href="#" class="ml-auto text-sm text-blue-700 hover:underline dark:text-blue-500">Lost Password?</a>
                 </div>
-                <button type="submit" class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" onClick={handleSubmit}>Login to your account</button>
+                <button type="submit" class="w-full text-white bg-teal-700 hover:bg-teal-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-teal-600 dark:hover:bg-teal-700 dark:focus:ring-teal-800" onClick={handleSubmit}>Login to your account</button>
                 <div class="text-sm font-medium text-gray-500 dark:text-gray-300">
-                  Not registered? <Link href="/register" class="text-blue-700 hover:underline dark:text-blue-500">Create account</Link>
+                  Not registered? <Link href="/register" class="text-teal-800 hover:underline dark:text-teal-900">Create account</Link>
                 </div>
               </form>
             </div>
