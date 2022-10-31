@@ -80,7 +80,7 @@ const research = () => {
           </div>
           {content.length ? content : (
             <div className="p-6 border-solid border-2 border-white text-white">
-              <div>No Publications  Here</div>
+              <div>No Publications  Here,Please add publication</div>
             </div>
           )}
 
