@@ -91,7 +91,7 @@ export default () => {
               </h4>
               <div className="flex gap-2 justify-center my-4">
                 <a href="#" className={`${Styles.btn} ${Styles.btn_border} `} >SEE Programs</a>
-                <a href="#" className={`${Styles.btn} ${Styles.btn_border} `} >Learn more</a>
+                <a href="/about" className={`${Styles.btn} ${Styles.btn_border} `} >Learn more</a>
               </div>
             </div>
           </div>

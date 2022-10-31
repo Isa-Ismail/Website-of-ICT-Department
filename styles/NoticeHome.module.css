@@ -1,6 +1,6 @@
 .event {
   padding: 97px 0;
-  background: #FFF8EA;
+  background: #fff8ea;
   color: black;
 }
 .event h2 {
@@ -107,7 +107,7 @@
 
 .event_date {
   width: 82px;
-  background: #665c7c;
+  background: #216364;
   float: left;
   text-align: center;
   border-radius: 2px;
@@ -119,7 +119,7 @@
   width: 100px;
 }
 .event_date_wrap {
-  border: 1px dashed #8d84a0;
+  border: 1px dashed whitesmoke;
   margin: 8px 8px;
   padding: 4px 0;
 }

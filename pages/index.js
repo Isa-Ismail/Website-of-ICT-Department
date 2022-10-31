@@ -13,7 +13,6 @@ import Header from '../components/Header'
 const Home = ({ data }) => {
 
     const { state, dispatch } = useContext(Store)
-    console.log(data)
     useEffect(() => {
         dispatch({ type: 'LOAD', payload: data })
     }, [])
