@@ -20,7 +20,6 @@ const Home = ({ data }) => {
     return (
         <>
             <Layout description="Website of ICT" title="ICT">
-                <Header />
                 <NoticeHome />
                 <Chart />
                 <Achievements />
